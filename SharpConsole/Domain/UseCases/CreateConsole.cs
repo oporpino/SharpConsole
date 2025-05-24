@@ -7,10 +7,10 @@ namespace SharpConsole.Domain.UseCases;
 public class CreateConsole
 {
   private readonly IScriptEngine _scriptEngine;
-  private readonly IConsoleUI _consoleUI;
+  private readonly IConsoleDisplay _consoleUI;
   private readonly ICommandHistory _commandHistory;
 
-  public CreateConsole(IScriptEngine scriptEngine, IConsoleUI consoleUI, ICommandHistory commandHistory)
+  public CreateConsole(IScriptEngine scriptEngine, IConsoleDisplay consoleUI, ICommandHistory commandHistory)
   {
     _scriptEngine = scriptEngine;
     _consoleUI = consoleUI;

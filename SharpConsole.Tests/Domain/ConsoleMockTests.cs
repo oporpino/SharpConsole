@@ -14,7 +14,7 @@ public class ConsoleMockTests
   {
     // Arrange
     var scriptEngine = new Mock<IScriptEngine>();
-    var consoleUI = new Mock<IConsoleUI>();
+    var consoleUI = new Mock<IConsoleDisplay>();
     var commandHistory = new Mock<ICommandHistory>();
     var console = new ConsoleEntity(scriptEngine.Object, consoleUI.Object, commandHistory.Object);
     var command = "test command";
@@ -31,7 +31,7 @@ public class ConsoleMockTests
   {
     // Arrange
     var scriptEngine = new Mock<IScriptEngine>();
-    var consoleUI = new Mock<IConsoleUI>();
+    var consoleUI = new Mock<IConsoleDisplay>();
     var commandHistory = new Mock<ICommandHistory>();
     var console = new ConsoleEntity(scriptEngine.Object, consoleUI.Object, commandHistory.Object);
     var result = "test result";

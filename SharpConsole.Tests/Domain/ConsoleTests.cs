@@ -25,12 +25,12 @@ public class ConsoleTests
     }
   }
 
-  private class TestConsoleUI : IConsoleUI
+  private class TestConsoleDisplay : IConsoleDisplay
   {
     private readonly Queue<string> _inputs;
     private readonly List<string> _outputs;
 
-    public TestConsoleUI(IEnumerable<string> inputs)
+    public TestConsoleDisplay(IEnumerable<string> inputs)
     {
       _inputs = new Queue<string>(inputs);
       _outputs = new List<string>();
@@ -76,7 +76,7 @@ public class ConsoleTests
   {
     // Arrange
     var scriptEngine = new Mock<IScriptEngine>();
-    var consoleUI = new TestConsoleUI(new[] { "2 + 2", "exit" });
+    var consoleUI = new TestConsoleDisplay(new[] { "2 + 2", "exit" });
     var commandHistory = new Mock<ICommandHistory>();
     var console = new ConsoleEntity(scriptEngine.Object, consoleUI, commandHistory.Object);
 
@@ -94,7 +94,7 @@ public class ConsoleTests
   {
     // Arrange
     var scriptEngine = new Mock<IScriptEngine>();
-    var consoleUI = new TestConsoleUI(new[] { "invalid", "exit" });
+    var consoleUI = new TestConsoleDisplay(new[] { "invalid", "exit" });
     var commandHistory = new Mock<ICommandHistory>();
     var console = new ConsoleEntity(scriptEngine.Object, consoleUI, commandHistory.Object);
 

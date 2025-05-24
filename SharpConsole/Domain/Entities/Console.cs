@@ -6,10 +6,10 @@ namespace SharpConsole.Domain.Entities;
 public class Console : IConsole
 {
   private readonly IScriptEngine _scriptEngine;
-  private readonly IConsoleUI _consoleUI;
+  private readonly IConsoleDisplay _consoleUI;
   private readonly ICommandHistory _commandHistory;
 
-  public Console(IScriptEngine scriptEngine, IConsoleUI consoleUI, ICommandHistory commandHistory)
+  public Console(IScriptEngine scriptEngine, IConsoleDisplay consoleUI, ICommandHistory commandHistory)
   {
     _scriptEngine = scriptEngine;
     _consoleUI = consoleUI;

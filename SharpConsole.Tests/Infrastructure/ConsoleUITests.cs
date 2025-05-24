@@ -5,7 +5,7 @@ using Moq;
 
 namespace SharpConsole.Tests.Infrastructure;
 
-public class ConsoleUITests
+public class ConsoleDisplayTests
 {
   [Fact]
   public void ShowResult_ShouldFormatAndDisplayResult()
@@ -14,7 +14,7 @@ public class ConsoleUITests
     var formatter = new Mock<IOutputFormatter>();
     var commandHistory = new Mock<ICommandHistory>();
     var inputHandler = new Mock<IInputHandler>();
-    var consoleUI = new ConsoleUI(formatter.Object, commandHistory.Object, inputHandler.Object);
+    var consoleUI = new ConsoleDisplay(formatter.Object, commandHistory.Object, inputHandler.Object);
     var result = new { Value = 42 };
 
     formatter.Setup(f => f.Format(result)).Returns("42");
@@ -30,7 +30,7 @@ public class ConsoleUITests
   public void ShowError_ShouldDisplayErrorInRed()
   {
     // Arrange
-    var consoleUI = new Mock<IConsoleUI>();
+    var consoleUI = new Mock<IConsoleDisplay>();
     var errorMessage = "Test error";
 
     // Act
@@ -45,7 +45,7 @@ public class ConsoleUITests
   public void ShowWelcome_ShouldDisplayWelcomeMessage()
   {
     // Arrange
-    var consoleUI = new Mock<IConsoleUI>();
+    var consoleUI = new Mock<IConsoleDisplay>();
 
     // Act
     consoleUI.Object.ShowWelcome();

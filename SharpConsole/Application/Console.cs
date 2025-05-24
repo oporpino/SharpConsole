@@ -14,12 +14,12 @@ internal class Console
     var commandHistory = new CommandHistory();
     var consoleManager = new ConsoleManager(commandHistory, new ConsoleLineCleaner());
     var inputHandler = new ConsoleInputHandler(consoleManager);
-    var consoleUI = new ConsoleUI(formatter, commandHistory, inputHandler);
+    var consoleDisplay = new ConsoleDisplay(formatter, commandHistory, inputHandler);
 
-    var createConsole = new CreateConsole(scriptEngine, consoleUI, commandHistory);
+    var createConsole = new CreateConsole(scriptEngine, consoleDisplay, commandHistory);
     var console = createConsole.Execute();
 
-    var runConsole = new RunConsole(console, consoleUI);
+    var runConsole = new RunConsole(console, consoleDisplay);
     await runConsole.Execute();
   }
 }

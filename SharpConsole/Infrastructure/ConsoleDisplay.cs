@@ -3,7 +3,7 @@ using SharpConsole.Domain.Outbound;
 
 namespace SharpConsole.Infrastructure;
 
-public class ConsoleUI : IConsoleUI
+public class ConsoleDisplay : IConsoleDisplay
 {
   private readonly IOutputFormatter _formatter;
   private readonly ICommandHistory _commandHistory;
@@ -11,7 +11,7 @@ public class ConsoleUI : IConsoleUI
   private const string PROMPT = "> ";
   private readonly CancellationTokenSource _cancellationTokenSource;
 
-  public ConsoleUI(IOutputFormatter formatter, ICommandHistory commandHistory, IInputHandler inputHandler)
+  public ConsoleDisplay(IOutputFormatter formatter, ICommandHistory commandHistory, IInputHandler inputHandler)
   {
     _formatter = formatter;
     _commandHistory = commandHistory;

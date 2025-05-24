@@ -10,7 +10,7 @@ public static class ConsoleModule
   {
     services.AddSingleton<IConsoleManager, ConsoleManager>();
     services.AddSingleton<IInputHandler, ConsoleInputHandler>();
-    services.AddSingleton<IConsoleUI, ConsoleUI>();
+    services.AddSingleton<IConsoleDisplay, ConsoleDisplay>();
     services.AddSingleton<ICommandHistory, CommandHistory>();
     services.AddSingleton<ILineCleaner, ConsoleLineCleaner>();
 

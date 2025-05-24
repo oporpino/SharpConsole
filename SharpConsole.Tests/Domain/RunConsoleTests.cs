@@ -13,7 +13,7 @@ public class RunConsoleTests
   {
     // Arrange
     var console = new Mock<IConsole>();
-    var consoleUI = new Mock<IConsoleUI>();
+    var consoleUI = new Mock<IConsoleDisplay>();
     var runConsole = new RunConsole(console.Object, consoleUI.Object);
 
     consoleUI.SetupSequence(u => u.ReadInput())
@@ -35,7 +35,7 @@ public class RunConsoleTests
   {
     // Arrange
     var console = new Mock<IConsole>();
-    var consoleUI = new Mock<IConsoleUI>();
+    var consoleUI = new Mock<IConsoleDisplay>();
     var runConsole = new RunConsole(console.Object, consoleUI.Object);
 
     // Act
@@ -52,7 +52,7 @@ public class RunConsoleTests
   {
     // Arrange
     var console = new Mock<IConsole>();
-    var consoleUI = new Mock<IConsoleUI>();
+    var consoleUI = new Mock<IConsoleDisplay>();
     var runConsole = new RunConsole(console.Object, consoleUI.Object);
 
     consoleUI.SetupSequence(u => u.ReadInput())

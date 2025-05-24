@@ -6,10 +6,10 @@ namespace SharpConsole.Domain.UseCases;
 public class RunConsole
 {
   private readonly IConsole _console;
-  private readonly IConsoleUI _consoleUI;
+  private readonly IConsoleDisplay _consoleUI;
   private bool _isRunning;
 
-  public RunConsole(IConsole console, IConsoleUI consoleUI)
+  public RunConsole(IConsole console, IConsoleDisplay consoleUI)
   {
     _console = console;
     _consoleUI = consoleUI;
