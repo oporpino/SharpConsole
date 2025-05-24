@@ -1,10 +1,12 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpConsole", "SharpConsole\SharpConsole.csproj", "{D7C4A6D-B63D-4964-A4D1-4B2C687DBCDE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpConsole.Example", "SharpConsole.Example\SharpConsole.Example.csproj", "{E7C4A6D-B63D-4964-A4D1-4B2C687DBCDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpConsole.Tests", "SharpConsole.Tests\SharpConsole.Tests.csproj", "{64F1AAB2-894A-4C9E-9221-D342A5424E8F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,5 +25,9 @@ Global
 		{E7C4A6D-B63D-4964-A4D1-4B2C687DBCDF}.Debug | Any CPU.Build.0 = Debug | Any CPU
 		{E7C4A6D-B63D-4964-A4D1-4B2C687DBCDF}.Release | Any CPU.ActiveCfg = Release | Any CPU
 		{E7C4A6D-B63D-4964-A4D1-4B2C687DBCDF}.Release | Any CPU.Build.0 = Release | Any CPU
-  EndGlobalSection
+		{64F1AAB2-894A-4C9E-9221-D342A5424E8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64F1AAB2-894A-4C9E-9221-D342A5424E8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64F1AAB2-894A-4C9E-9221-D342A5424E8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64F1AAB2-894A-4C9E-9221-D342A5424E8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 EndGlobal

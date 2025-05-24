@@ -36,8 +36,8 @@ public class Program
     var scriptEngine = new ScriptEngine(context);
     var consoleUI = new ConsoleUI();
 
-    var application = new SharpConsole.Application(context, scriptEngine, consoleUI);
+    var console = new Console(context, scriptEngine, consoleUI);
 
-    await application.Run();
+    await console.Run();
   }
 }

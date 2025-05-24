@@ -14,7 +14,9 @@ public class ScriptEngine : IScriptEngine
     _context = context;
     _options = ScriptOptions.Default
         .AddReferences(typeof(System.Console).Assembly)
-        .AddImports("System");
+        .AddReferences(typeof(System.Linq.Enumerable).Assembly)
+        .AddImports("System")
+        .AddImports("System.Linq");
   }
 
   public async Task<object?> Execute(string code)

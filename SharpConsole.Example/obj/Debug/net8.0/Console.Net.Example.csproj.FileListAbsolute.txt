@@ -1,5 +1,0 @@
-/Users/gporpino/workspace/oporpino/console/Console.Net.Example/obj/Debug/net8.0/Console.Net.Example.csproj.AssemblyReference.cache
-/Users/gporpino/workspace/oporpino/console/Console.Net.Example/obj/Debug/net8.0/Console.Net.Example.GeneratedMSBuildEditorConfig.editorconfig
-/Users/gporpino/workspace/oporpino/console/Console.Net.Example/obj/Debug/net8.0/Console.Net.Example.AssemblyInfoInputs.cache
-/Users/gporpino/workspace/oporpino/console/Console.Net.Example/obj/Debug/net8.0/Console.Net.Example.AssemblyInfo.cs
-/Users/gporpino/workspace/oporpino/console/Console.Net.Example/obj/Debug/net8.0/Console.Net.Example.csproj.CoreCompileInputs.cache
