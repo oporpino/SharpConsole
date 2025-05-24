@@ -7,7 +7,6 @@ namespace SharpConsole.Application;
 
 internal class Console
 {
-
   internal static async Task Start(IContext context)
   {
     var scriptEngine = new ScriptEngine(context);

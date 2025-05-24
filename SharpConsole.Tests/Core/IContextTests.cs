@@ -1,7 +1,8 @@
-using SharpConsole.Core;
+using SharpConsole.Domain.Inbound;
 using Xunit;
+using Moq;
 
-namespace SharpConsole.Tests.Core;
+namespace SharpConsole.Tests;
 
 public class IContextTests
 {

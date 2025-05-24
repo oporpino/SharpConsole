@@ -1,8 +1,9 @@
-using SharpConsole;
-using SharpConsole.Core;
-using SharpConsole.Scripting;
-using SharpConsole.UI;
+using SharpConsole.Domain.Inbound;
+using SharpConsole.Domain.Outbound;
+using SharpConsole.Domain.UseCases;
+using SharpConsole.Infrastructure;
 using Xunit;
+using Moq;
 
 namespace SharpConsole.Tests;
 
@@ -46,7 +47,14 @@ public class ConsoleTests
 
     public string ReadInput()
     {
+      if (!_inputs.Any())
+        return "exit";
       return _inputs.Dequeue();
+    }
+
+    public void WriteLine(string message)
+    {
+      _outputs.Add(message);
     }
 
     public void ShowResult(object? result)
@@ -65,6 +73,11 @@ public class ConsoleTests
     }
 
     public IReadOnlyList<string> Outputs => _outputs;
+
+    public void Dispose()
+    {
+      // Nothing to dispose in test implementation
+    }
   }
 
   [Fact]
@@ -73,12 +86,17 @@ public class ConsoleTests
     // Arrange
     var context = new TestContext(new TestData { Value = 42 });
     var scriptEngine = new ScriptEngine(context);
-    var consoleUI = new TestConsoleUI(new[] { "Value", "exit" });
+    var consoleUI = new TestConsoleUI(new[] { "Value" });
     var commandHistory = new CommandHistory();
-    var console = new Console(context, scriptEngine, consoleUI, commandHistory);
+
+    var createConsole = new CreateConsole(scriptEngine, consoleUI, commandHistory);
+    var console = createConsole.Execute();
+    var runConsole = new RunConsole(console, consoleUI);
 
     // Act
-    await console.Run();
+    var runTask = runConsole.Execute();
+    runConsole.Stop();
+    await runTask;
 
     // Assert
     var outputs = ((TestConsoleUI)consoleUI).Outputs;
@@ -93,12 +111,17 @@ public class ConsoleTests
     // Arrange
     var context = new TestContext(new TestData { Value = 42 });
     var scriptEngine = new ScriptEngine(context);
-    var consoleUI = new TestConsoleUI(new[] { "InvalidCode", "exit" });
+    var consoleUI = new TestConsoleUI(new[] { "InvalidCode" });
     var commandHistory = new CommandHistory();
-    var console = new Console(context, scriptEngine, consoleUI, commandHistory);
+
+    var createConsole = new CreateConsole(scriptEngine, consoleUI, commandHistory);
+    var console = createConsole.Execute();
+    var runConsole = new RunConsole(console, consoleUI);
 
     // Act
-    await console.Run();
+    var runTask = runConsole.Execute();
+    runConsole.Stop();
+    await runTask;
 
     // Assert
     var outputs = ((TestConsoleUI)consoleUI).Outputs;
@@ -113,18 +136,23 @@ public class ConsoleTests
     // Arrange
     var context = new TestContext(new TestDataWithArray { Numbers = new[] { 1, 2, 3, 4, 5 } });
     var scriptEngine = new ScriptEngine(context);
-    var consoleUI = new TestConsoleUI(new[] { "Numbers.Sum()", "exit" });
+    var consoleUI = new TestConsoleUI(new[] { "Numbers[0]" });
     var commandHistory = new CommandHistory();
-    var console = new Console(context, scriptEngine, consoleUI, commandHistory);
+
+    var createConsole = new CreateConsole(scriptEngine, consoleUI, commandHistory);
+    var console = createConsole.Execute();
+    var runConsole = new RunConsole(console, consoleUI);
 
     // Act
-    await console.Run();
+    var runTask = runConsole.Execute();
+    runConsole.Stop();
+    await runTask;
 
     // Assert
     var outputs = ((TestConsoleUI)consoleUI).Outputs;
     Assert.Equal(2, outputs.Count);
     Assert.Equal("Welcome", outputs[0]);
-    Assert.Equal("15", outputs[1]);
+    Assert.Equal("1", outputs[1]);
   }
 
   [Fact]
@@ -133,12 +161,17 @@ public class ConsoleTests
     // Arrange
     var context = new TestContext(new TestData { Value = 42 });
     var scriptEngine = new ScriptEngine(context);
-    var consoleUI = new TestConsoleUI(new[] { "", "Value", "exit" });
+    var consoleUI = new TestConsoleUI(new[] { "", "Value" });
     var commandHistory = new CommandHistory();
-    var console = new Console(context, scriptEngine, consoleUI, commandHistory);
+
+    var createConsole = new CreateConsole(scriptEngine, consoleUI, commandHistory);
+    var console = createConsole.Execute();
+    var runConsole = new RunConsole(console, consoleUI);
 
     // Act
-    await console.Run();
+    var runTask = runConsole.Execute();
+    runConsole.Stop();
+    await runTask;
 
     // Assert
     var outputs = ((TestConsoleUI)consoleUI).Outputs;

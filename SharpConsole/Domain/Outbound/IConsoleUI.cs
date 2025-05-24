@@ -1,6 +1,6 @@
 namespace SharpConsole.Domain.Outbound;
 
-public interface IConsoleUI
+public interface IConsoleUI : IDisposable
 {
   string ReadInput();
   void WriteLine(string message);

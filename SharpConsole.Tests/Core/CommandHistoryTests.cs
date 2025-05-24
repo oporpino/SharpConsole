@@ -1,7 +1,9 @@
-using SharpConsole.Core;
+using SharpConsole.Domain.Outbound;
+using SharpConsole.Infrastructure;
 using Xunit;
+using Moq;
 
-namespace SharpConsole.Tests.Core;
+namespace SharpConsole.Tests;
 
 public class CommandHistoryTests
 {

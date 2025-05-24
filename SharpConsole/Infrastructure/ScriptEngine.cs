@@ -8,7 +8,6 @@ namespace SharpConsole.Infrastructure;
 public class ScriptEngine : IScriptEngine
 {
   private readonly IContext _context;
-  private ScriptState<object>? _scriptState;
 
   public ScriptEngine(IContext context)
   {
@@ -23,16 +22,8 @@ public class ScriptEngine : IScriptEngine
         .WithImports("System")
         .WithEmitDebugInformation(true);
 
-      if (_scriptState == null)
-      {
-        _scriptState = await CSharpScript.RunAsync(code, options, _context.GetContext());
-      }
-      else
-      {
-        _scriptState = await _scriptState.ContinueWithAsync(code);
-      }
-
-      return _scriptState.ReturnValue;
+      var scriptState = await CSharpScript.RunAsync(code, options, _context.GetContext());
+      return scriptState.ReturnValue;
     }
     catch (Exception ex)
     {

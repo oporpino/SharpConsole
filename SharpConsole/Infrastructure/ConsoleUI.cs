@@ -9,12 +9,14 @@ public class ConsoleUI : IConsoleUI
   private readonly ICommandHistory _commandHistory;
   private readonly IInputHandler _inputHandler;
   private const string PROMPT = "> ";
+  private readonly CancellationTokenSource _cancellationTokenSource;
 
   public ConsoleUI(IOutputFormatter formatter, ICommandHistory commandHistory, IInputHandler inputHandler)
   {
     _formatter = formatter;
     _commandHistory = commandHistory;
     _inputHandler = inputHandler;
+    _cancellationTokenSource = new CancellationTokenSource();
   }
 
   public string ReadInput()
@@ -23,8 +25,14 @@ public class ConsoleUI : IConsoleUI
     var currentPosition = 0;
     System.Console.Write(PROMPT);
 
-    while (true)
+    while (!_cancellationTokenSource.Token.IsCancellationRequested)
     {
+      if (!System.Console.KeyAvailable)
+      {
+        Thread.Sleep(100);
+        continue;
+      }
+
       var key = System.Console.ReadKey(true);
       var consoleInput = new ConsoleInput(input, currentPosition, key);
       var result = _inputHandler.Handle(consoleInput);
@@ -39,6 +47,14 @@ public class ConsoleUI : IConsoleUI
       input = result.Input;
       currentPosition = result.Position;
     }
+
+    return string.Empty;
+  }
+
+  public void Dispose()
+  {
+    _cancellationTokenSource.Cancel();
+    _cancellationTokenSource.Dispose();
   }
 
   public void WriteLine(string message)

@@ -7,25 +7,31 @@ public class RunConsole
 {
   private readonly IConsole _console;
   private readonly IConsoleUI _consoleUI;
+  private bool _isRunning;
 
   public RunConsole(IConsole console, IConsoleUI consoleUI)
   {
     _console = console;
     _consoleUI = consoleUI;
+    _isRunning = true;
+  }
+
+  public void Stop()
+  {
+    _isRunning = false;
   }
 
   public async Task Execute()
   {
     await _console.ShowWelcome();
-    var isRunning = true;
 
-    while (isRunning)
+    while (_isRunning)
     {
       var input = _consoleUI.ReadInput();
       if (string.IsNullOrWhiteSpace(input)) continue;
       if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
       {
-        isRunning = false;
+        _isRunning = false;
         continue;
       }
 

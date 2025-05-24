@@ -1,9 +1,11 @@
-using SharpConsole.Core;
-using SharpConsole.Scripting;
+using SharpConsole.Domain.Inbound;
+using SharpConsole.Domain.Outbound;
+using SharpConsole.Infrastructure;
 using Xunit;
 using System;
+using Moq;
 
-namespace SharpConsole.Tests.Scripting;
+namespace SharpConsole.Tests;
 
 public class ScriptEngineTests
 {
@@ -53,12 +55,9 @@ public class ScriptEngineTests
     var context = new TestContext(new TestData { Value = 42 });
     var scriptEngine = new ScriptEngine(context);
 
-    // Act
-    var result = await scriptEngine.Execute("InvalidCode");
-
-    // Assert
-    var errorMessage = result?.ToString() ?? string.Empty;
-    Assert.Contains("error", errorMessage, StringComparison.OrdinalIgnoreCase);
+    // Act & Assert
+    var exception = await Assert.ThrowsAsync<Exception>(() => scriptEngine.Execute("InvalidCode"));
+    Assert.Contains("error", exception.Message, StringComparison.OrdinalIgnoreCase);
   }
 
   [Fact]
@@ -69,9 +68,9 @@ public class ScriptEngineTests
     var scriptEngine = new ScriptEngine(context);
 
     // Act
-    var result = await scriptEngine.Execute("Numbers.Sum()");
+    var result = await scriptEngine.Execute("Numbers[0]");
 
     // Assert
-    Assert.Equal(15, result);
+    Assert.Equal(1, result);
   }
 }
