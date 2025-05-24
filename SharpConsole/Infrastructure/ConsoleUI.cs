@@ -34,18 +34,19 @@ public class ConsoleUI : IConsoleUI
       }
 
       var key = System.Console.ReadKey(true);
-      var consoleInput = new ConsoleInput(input, currentPosition, key);
+      var state = new InputState(input, currentPosition);
+      var consoleInput = new ConsoleInput(state, key);
       var result = _inputHandler.Handle(consoleInput);
 
       if (result.IsComplete)
       {
         System.Console.WriteLine();
-        _commandHistory.AddCommand(result.Input);
-        return result.Input;
+        _commandHistory.AddCommand(result.State.Text);
+        return result.State.Text;
       }
 
-      input = result.Input;
-      currentPosition = result.Position;
+      input = result.State.Text;
+      currentPosition = result.State.Position;
     }
 
     return string.Empty;

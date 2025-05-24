@@ -26,19 +26,18 @@ public class ConsoleInputHandler : IInputHandler
 
   private InputResult HandleEnter(ConsoleInput input)
   {
-    _consoleManager.WriteLine("");
-    return new InputResult(input.Text, 0, true);
+    return new InputResult(new InputState(input.State.Text, 0), true);
   }
 
   private InputResult HandleUpArrow(ConsoleInput input)
   {
     var historyCommand = _consoleManager.GetPreviousCommand();
     if (string.IsNullOrEmpty(historyCommand))
-      return new InputResult(input.Text, input.Position, false);
+      return new InputResult(input.State, false);
 
     _consoleManager.ClearCurrentLine();
     _consoleManager.Write(historyCommand);
-    return new InputResult(historyCommand, historyCommand.Length, false);
+    return new InputResult(new InputState(historyCommand, historyCommand.Length), false);
   }
 
   private InputResult HandleDownArrow(ConsoleInput input)
@@ -46,25 +45,25 @@ public class ConsoleInputHandler : IInputHandler
     var historyCommand = _consoleManager.GetNextCommand();
     _consoleManager.ClearCurrentLine();
     _consoleManager.Write(historyCommand);
-    return new InputResult(historyCommand, historyCommand.Length, false);
+    return new InputResult(new InputState(historyCommand, historyCommand.Length), false);
   }
 
   private InputResult HandleBackspace(ConsoleInput input)
   {
-    if (input.Position == 0)
-      return new InputResult(input.Text, input.Position, false);
+    if (input.State.Position == 0)
+      return new InputResult(input.State, false);
 
-    var newText = input.Text.Remove(input.Position - 1, 1);
-    var newPosition = input.Position - 1;
+    var newText = input.State.Text.Remove(input.State.Position - 1, 1);
+    var newPosition = input.State.Position - 1;
     _consoleManager.WriteBackspace();
-    return new InputResult(newText, newPosition, false);
+    return new InputResult(new InputState(newText, newPosition), false);
   }
 
   private InputResult HandleCharacter(ConsoleInput input)
   {
-    var newText = input.Text.Insert(input.Position, input.Key.KeyChar.ToString());
-    var newPosition = input.Position + 1;
+    var newText = input.State.Text.Insert(input.State.Position, input.Key.KeyChar.ToString());
+    var newPosition = input.State.Position + 1;
     _consoleManager.Write(input.Key.KeyChar.ToString());
-    return new InputResult(newText, newPosition, false);
+    return new InputResult(new InputState(newText, newPosition), false);
   }
 }
