@@ -35,9 +35,10 @@ public class Program
     var context = new CustomContext();
     var scriptEngine = new ScriptEngine(context);
     var formatter = new JsonOutputFormatter();
-    var consoleUI = new ConsoleUI(formatter);
+    var commandHistory = new CommandHistory();
+    var consoleUI = new ConsoleUI(formatter, commandHistory);
 
-    var console = new Console(context, scriptEngine, consoleUI);
+    var console = new Console(context, scriptEngine, consoleUI, commandHistory);
 
     await console.Run();
   }

@@ -74,7 +74,8 @@ public class ConsoleTests
     var context = new TestContext(new TestData { Value = 42 });
     var scriptEngine = new ScriptEngine(context);
     var consoleUI = new TestConsoleUI(new[] { "Value", "exit" });
-    var console = new Console(context, scriptEngine, consoleUI);
+    var commandHistory = new CommandHistory();
+    var console = new Console(context, scriptEngine, consoleUI, commandHistory);
 
     // Act
     await console.Run();
@@ -93,7 +94,8 @@ public class ConsoleTests
     var context = new TestContext(new TestData { Value = 42 });
     var scriptEngine = new ScriptEngine(context);
     var consoleUI = new TestConsoleUI(new[] { "InvalidCode", "exit" });
-    var console = new Console(context, scriptEngine, consoleUI);
+    var commandHistory = new CommandHistory();
+    var console = new Console(context, scriptEngine, consoleUI, commandHistory);
 
     // Act
     await console.Run();
@@ -112,7 +114,8 @@ public class ConsoleTests
     var context = new TestContext(new TestDataWithArray { Numbers = new[] { 1, 2, 3, 4, 5 } });
     var scriptEngine = new ScriptEngine(context);
     var consoleUI = new TestConsoleUI(new[] { "Numbers.Sum()", "exit" });
-    var console = new Console(context, scriptEngine, consoleUI);
+    var commandHistory = new CommandHistory();
+    var console = new Console(context, scriptEngine, consoleUI, commandHistory);
 
     // Act
     await console.Run();
@@ -131,7 +134,8 @@ public class ConsoleTests
     var context = new TestContext(new TestData { Value = 42 });
     var scriptEngine = new ScriptEngine(context);
     var consoleUI = new TestConsoleUI(new[] { "", "Value", "exit" });
-    var console = new Console(context, scriptEngine, consoleUI);
+    var commandHistory = new CommandHistory();
+    var console = new Console(context, scriptEngine, consoleUI, commandHistory);
 
     // Act
     await console.Run();
