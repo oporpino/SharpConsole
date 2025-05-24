@@ -34,7 +34,6 @@ public class Program
   public static async Task Main()
   {
     var context = new CustomContext();
-
     await context.RunConsoleAsync();
   }
 }

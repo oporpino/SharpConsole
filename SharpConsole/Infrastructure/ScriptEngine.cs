@@ -3,20 +3,15 @@ using Microsoft.CodeAnalysis.Scripting;
 using SharpConsole.Domain.Outbound;
 using SharpConsole.Domain.Inbound;
 using System.Linq;
+using SharpConsole.Application;
 
 namespace SharpConsole.Infrastructure;
 
 public class ScriptEngine : IScriptEngine
 {
-  private readonly IContext _context;
-
-  public ScriptEngine(IContext context)
+  public async Task<object?> Execute(string command)
   {
-    _context = context;
-  }
-
-  public async Task<object?> Execute(string code)
-  {
+    var context = ConsoleContext.GetContext();
     try
     {
       var options = ScriptOptions.Default
@@ -24,7 +19,7 @@ public class ScriptEngine : IScriptEngine
         .AddReferences(typeof(Enumerable).Assembly)
         .WithEmitDebugInformation(true);
 
-      var scriptState = await CSharpScript.RunAsync(code, options, _context.GetContext());
+      var scriptState = await CSharpScript.RunAsync(command, options, context.GetContext());
       return scriptState.ReturnValue;
     }
     catch (Exception ex)
