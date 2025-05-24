@@ -1,4 +1,4 @@
-namespace SharpConsole.Scripting;
+namespace SharpConsole.Domain.Outbound;
 
 public interface IScriptEngine
 {

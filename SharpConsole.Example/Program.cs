@@ -1,7 +1,8 @@
 using SharpConsole;
-using SharpConsole.Core;
-using SharpConsole.Scripting;
-using SharpConsole.UI;
+using SharpConsole.Application;
+using SharpConsole.Domain.Inbound;
+using SharpConsole.Domain.Outbound;
+using SharpConsole.Infrastructure;
 
 namespace SharpConsole.Example;
 
@@ -33,13 +34,7 @@ public class Program
   public static async Task Main()
   {
     var context = new CustomContext();
-    var scriptEngine = new ScriptEngine(context);
-    var formatter = new JsonOutputFormatter();
-    var commandHistory = new CommandHistory();
-    var consoleUI = new ConsoleUI(formatter, commandHistory);
 
-    var console = new Console(context, scriptEngine, consoleUI, commandHistory);
-
-    await console.Run();
+    await context.RunConsoleAsync();
   }
 }

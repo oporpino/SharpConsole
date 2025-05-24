@@ -1,4 +1,4 @@
-namespace SharpConsole.UI;
+namespace SharpConsole.Domain.Outbound;
 
 public interface IOutputFormatter
 {

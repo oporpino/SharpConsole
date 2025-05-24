@@ -1,4 +1,4 @@
-namespace SharpConsole.Core;
+namespace SharpConsole.Domain.Inbound;
 
 public interface IContext
 {
