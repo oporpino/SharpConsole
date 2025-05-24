@@ -1,12 +1,11 @@
 using SharpConsole.Domain.Inbound;
-using SharpConsole;
 
-namespace SharpConsole;
+namespace SharpConsole.Application;
 
 public static class ConsoleExtensions
 {
   public static async Task RunConsoleAsync(this IContext context)
   {
-    await SharpConsole.Application.Console.Start(context);
+    await Console.Start(context);
   }
 }

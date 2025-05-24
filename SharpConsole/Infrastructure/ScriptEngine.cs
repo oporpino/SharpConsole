@@ -2,6 +2,7 @@ using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
 using SharpConsole.Domain.Outbound;
 using SharpConsole.Domain.Inbound;
+using System.Linq;
 
 namespace SharpConsole.Infrastructure;
 
@@ -19,7 +20,8 @@ public class ScriptEngine : IScriptEngine
     try
     {
       var options = ScriptOptions.Default
-        .WithImports("System")
+        .WithImports("System", "System.Linq")
+        .AddReferences(typeof(Enumerable).Assembly)
         .WithEmitDebugInformation(true);
 
       var scriptState = await CSharpScript.RunAsync(code, options, _context.GetContext());

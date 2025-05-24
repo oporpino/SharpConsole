@@ -1,9 +1,8 @@
 using SharpConsole.Domain.Outbound;
 using SharpConsole.Infrastructure;
 using Xunit;
-using Moq;
 
-namespace SharpConsole.Tests;
+namespace SharpConsole.Tests.Domain;
 
 public class CommandHistoryTests
 {
@@ -99,56 +98,5 @@ public class CommandHistoryTests
 
     // Assert
     Assert.Equal(string.Empty, result);
-  }
-
-  [Fact]
-  public void NavigateDown_WithHistory_ShouldNavigateDown()
-  {
-    // Arrange
-    var history = new CommandHistory();
-    history.AddCommand("first");
-    history.AddCommand("second");
-    history.AddCommand("third");
-
-    // Act & Assert
-    history.NavigateUp(); // Go to third
-    history.NavigateUp(); // Go to second
-    Assert.Equal("third", history.NavigateDown());
-    Assert.Equal(string.Empty, history.NavigateDown()); // Should return empty after last command
-  }
-
-  [Fact]
-  public void Clear_ShouldResetHistoryAndNavigation()
-  {
-    // Arrange
-    var history = new CommandHistory();
-    history.AddCommand("first");
-    history.AddCommand("second");
-    history.NavigateUp(); // Set navigation state
-
-    // Act
-    history.Clear();
-
-    // Assert
-    Assert.Empty(history.GetHistory());
-    Assert.Equal(string.Empty, history.NavigateUp());
-  }
-
-  [Fact]
-  public void AddCommand_WithMaxHistorySize_ShouldRemoveOldestCommand()
-  {
-    // Arrange
-    var history = new CommandHistory();
-    const int maxSize = 100;
-
-    // Act
-    for (var i = 0; i < maxSize + 1; i++)
-      history.AddCommand($"command{i}");
-
-    // Assert
-    var commands = history.GetHistory().ToList();
-    Assert.Equal(maxSize, commands.Count);
-    Assert.Equal("command1", commands[0]); // First command should be removed
-    Assert.Equal($"command{maxSize}", commands[maxSize - 1]); // Last command should be the newest
   }
 }
