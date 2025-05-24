@@ -34,7 +34,8 @@ public class Program
   {
     var context = new CustomContext();
     var scriptEngine = new ScriptEngine(context);
-    var consoleUI = new ConsoleUI();
+    var formatter = new JsonOutputFormatter();
+    var consoleUI = new ConsoleUI(formatter);
 
     var console = new Console(context, scriptEngine, consoleUI);
 

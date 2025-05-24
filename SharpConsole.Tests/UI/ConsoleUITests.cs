@@ -5,11 +5,18 @@ namespace SharpConsole.Tests.UI;
 
 public class ConsoleUITests
 {
+  private readonly IOutputFormatter _formatter;
+
+  public ConsoleUITests()
+  {
+    _formatter = new JsonOutputFormatter();
+  }
+
   [Fact]
   public void ShowWelcome_ShouldDisplayWelcomeMessage()
   {
     // Arrange
-    var consoleUI = new ConsoleUI();
+    var consoleUI = new ConsoleUI(_formatter);
     var stringWriter = new StringWriter();
     System.Console.SetOut(stringWriter);
 
@@ -25,7 +32,7 @@ public class ConsoleUITests
   public void ShowResult_WithNull_ShouldDisplayNull()
   {
     // Arrange
-    var consoleUI = new ConsoleUI();
+    var consoleUI = new ConsoleUI(_formatter);
     var stringWriter = new StringWriter();
     System.Console.SetOut(stringWriter);
 
@@ -38,10 +45,10 @@ public class ConsoleUITests
   }
 
   [Fact]
-  public void ShowResult_WithValue_ShouldDisplayValue()
+  public void ShowResult_WithValue_ShouldDisplayJson()
   {
     // Arrange
-    var consoleUI = new ConsoleUI();
+    var consoleUI = new ConsoleUI(_formatter);
     var stringWriter = new StringWriter();
     System.Console.SetOut(stringWriter);
 
@@ -50,14 +57,14 @@ public class ConsoleUITests
 
     // Assert
     var output = stringWriter.ToString();
-    Assert.Contains("test", output);
+    Assert.Contains("\"test\"", output);
   }
 
   [Fact]
   public void ShowError_ShouldDisplayErrorMessageInRed()
   {
     // Arrange
-    var consoleUI = new ConsoleUI();
+    var consoleUI = new ConsoleUI(_formatter);
     var stringWriter = new StringWriter();
     System.Console.SetOut(stringWriter);
 

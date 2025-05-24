@@ -7,6 +7,12 @@ public class ConsoleUI : IConsoleUI
   private const string PROMPT = "> ";
   private const string WELCOME_MESSAGE = "Welcome to SharpConsole! Type your C# code and press Enter to execute.";
   private const string ERROR_PREFIX = "Error: ";
+  private readonly IOutputFormatter _formatter;
+
+  public ConsoleUI(IOutputFormatter formatter)
+  {
+    _formatter = formatter;
+  }
 
   public string ReadInput()
   {
@@ -16,7 +22,7 @@ public class ConsoleUI : IConsoleUI
 
   public void ShowResult(object? result)
   {
-    System.Console.WriteLine(result?.ToString() ?? "null");
+    System.Console.WriteLine(_formatter.Format(result));
   }
 
   public void ShowWelcome()
