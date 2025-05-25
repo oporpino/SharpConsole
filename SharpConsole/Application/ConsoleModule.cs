@@ -13,7 +13,7 @@ public static class ConsoleModule
   public static IServiceCollection AddConsoleModule(this IServiceCollection services)
   {
     // Register domain entities
-    services.AddSingleton<IConsole, ConsoleEntity>();
+    services.AddSingleton<IConsoleExecutor, ConsoleExecutor>();
 
     // Register infrastructure implementations for domain interfaces
     services.AddSingleton<IScriptEngine, ScriptEngine>();
@@ -25,7 +25,7 @@ public static class ConsoleModule
     services.AddSingleton<IOutputFormatter, JsonOutputFormatter>();
 
     // Register use cases
-    services.AddSingleton<IUseCase<IConsole>, CreateConsoleUsecase>();
+    services.AddSingleton<IUseCase<IConsoleExecutor>, CreateConsoleUsecase>();
 
     // Register application services
     services.AddSingleton<Console>();

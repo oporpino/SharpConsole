@@ -6,6 +6,7 @@ namespace SharpConsole.Infrastructure;
 public class ConsoleInputHandler : IInputHandler
 {
   private readonly IConsoleManager _consoleManager;
+  private const string PROMPT = "> ";
 
   public ConsoleInputHandler(IConsoleManager consoleManager)
   {
@@ -36,6 +37,7 @@ public class ConsoleInputHandler : IInputHandler
       return new InputResult(input.State, false);
 
     _consoleManager.ClearCurrentLine();
+    _consoleManager.Write(PROMPT);
     _consoleManager.Write(historyCommand);
     return new InputResult(new InputState(historyCommand, historyCommand.Length), false);
   }
@@ -44,6 +46,7 @@ public class ConsoleInputHandler : IInputHandler
   {
     var historyCommand = _consoleManager.GetNextCommand();
     _consoleManager.ClearCurrentLine();
+    _consoleManager.Write(PROMPT);
     _consoleManager.Write(historyCommand);
     return new InputResult(new InputState(historyCommand, historyCommand.Length), false);
   }

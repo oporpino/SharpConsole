@@ -5,13 +5,10 @@ namespace SharpConsole.Infrastructure;
 public class ConsoleManager : IConsoleManager
 {
   private readonly ICommandHistory _commandHistory;
-  private readonly ILineCleaner _lineCleaner;
-  private const string PROMPT = "> ";
 
-  public ConsoleManager(ICommandHistory commandHistory, ILineCleaner lineCleaner)
+  public ConsoleManager(ICommandHistory commandHistory)
   {
     _commandHistory = commandHistory;
-    _lineCleaner = lineCleaner;
   }
 
   public string GetPreviousCommand()
@@ -26,7 +23,10 @@ public class ConsoleManager : IConsoleManager
 
   public void ClearCurrentLine()
   {
-    _lineCleaner.Clear();
+    var currentLine = System.Console.CursorTop;
+    System.Console.SetCursorPosition(0, currentLine);
+    System.Console.Write(new string(' ', System.Console.WindowWidth));
+    System.Console.SetCursorPosition(0, currentLine);
   }
 
   public void WriteLine(string text)

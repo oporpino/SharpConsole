@@ -4,14 +4,14 @@ namespace SharpConsole.Application;
 
 public static class ConsoleContext
 {
-  private static IContext? _context;
+  private static dynamic? _context;
 
-  public static void SetContext(IContext context)
+  public static void Set(dynamic context)
   {
     _context = context;
   }
 
-  public static IContext GetContext()
+  public static dynamic Get()
   {
     return _context ?? throw new InvalidOperationException("Context not set");
   }

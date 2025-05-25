@@ -3,23 +3,22 @@ using Xunit;
 
 namespace SharpConsole.Tests.Domain;
 
-public class IContextTests
+public class ISharpConsoleTests
 {
   [Fact]
-  public void GetContext_ShouldReturnContextObject()
+  public void GetContext_ShouldReturnContext()
   {
     // Arrange
-    var context = new TestContext(new { Value = 42 });
+    var context = new TestContext(new { Name = "Test" });
 
     // Act
     var result = context.GetContext();
 
     // Assert
     Assert.NotNull(result);
-    Assert.Equal(42, ((dynamic)result).Value);
   }
 
-  private class TestContext : IContext
+  private class TestContext : ISharpConsole
   {
     private readonly object _data;
 

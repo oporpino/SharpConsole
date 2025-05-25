@@ -4,24 +4,24 @@ using SharpConsole.Domain.Inbound;
 
 namespace SharpConsole.Domain.UseCases;
 
-public class CreateConsoleUsecase : UseCase<IConsole>
+public class CreateConsoleUsecase : UseCase<IConsoleExecutor>
 {
   private readonly IScriptEngine _scriptEngine;
-  private readonly IConsoleDisplay _consoleUI;
+  private readonly IConsoleDisplay _console;
   private readonly ICommandHistory _commandHistory;
 
   public CreateConsoleUsecase(
       IScriptEngine scriptEngine,
-      IConsoleDisplay consoleUI,
+      IConsoleDisplay console,
       ICommandHistory commandHistory)
   {
     _scriptEngine = scriptEngine;
-    _consoleUI = consoleUI;
+    _console = console;
     _commandHistory = commandHistory;
   }
 
-  public override IConsole Execute()
+  public override IConsoleExecutor Execute()
   {
-    return new ConsoleEntity(_scriptEngine, _consoleUI, _commandHistory);
+    return new ConsoleExecutor(_scriptEngine, _console, _commandHistory);
   }
 }

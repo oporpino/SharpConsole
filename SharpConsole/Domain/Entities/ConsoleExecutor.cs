@@ -3,17 +3,17 @@ using SharpConsole.Domain.Outbound;
 
 namespace SharpConsole.Domain.Entities;
 
-public class ConsoleEntity : IConsole
+public class ConsoleExecutor : IConsoleExecutor
 {
   private readonly IScriptEngine _scriptEngine;
-  private readonly IConsoleDisplay _consoleUI;
+  private readonly IConsoleDisplay _console;
   private readonly ICommandHistory _commandHistory;
   private bool _isRunning;
 
-  public ConsoleEntity(IScriptEngine scriptEngine, IConsoleDisplay consoleUI, ICommandHistory commandHistory)
+  public ConsoleExecutor(IScriptEngine scriptEngine, IConsoleDisplay consoleDisplay, ICommandHistory commandHistory)
   {
     _scriptEngine = scriptEngine;
-    _consoleUI = consoleUI;
+    _console = consoleDisplay;
     _commandHistory = commandHistory;
     _isRunning = true;
   }
@@ -23,13 +23,18 @@ public class ConsoleEntity : IConsole
     _isRunning = false;
   }
 
+  public void Execute()
+  {
+    Start().Wait();
+  }
+
   public async Task Start()
   {
     await ShowWelcome();
 
     while (_isRunning)
     {
-      var input = _consoleUI.ReadInput();
+      var input = _console.ReadInput();
       if (string.IsNullOrWhiteSpace(input)) continue;
       if (input.Equals("exit", StringComparison.OrdinalIgnoreCase))
       {
@@ -57,19 +62,19 @@ public class ConsoleEntity : IConsole
 
   public Task ShowResult(object? result)
   {
-    _consoleUI.ShowResult(result);
+    _console.ShowResult(result);
     return Task.CompletedTask;
   }
 
   public Task ShowError(string message)
   {
-    _consoleUI.ShowError(message);
+    _console.ShowError(message);
     return Task.CompletedTask;
   }
 
   public Task ShowWelcome()
   {
-    _consoleUI.ShowWelcome();
+    _console.ShowWelcome();
     return Task.CompletedTask;
   }
 }

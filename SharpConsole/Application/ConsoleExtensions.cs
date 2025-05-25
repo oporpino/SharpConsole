@@ -4,16 +4,8 @@ namespace SharpConsole.Application;
 
 public static class ConsoleExtensions
 {
-  private static bool _isInitialized;
-
-  public static async Task RunConsoleAsync(this IContext context)
+  public static void Start(this ISharpConsole console)
   {
-    if (!_isInitialized)
-    {
-      ConsoleModule.Initialize();
-      _isInitialized = true;
-    }
-
-    await Console.Start(context);
+    Console.Start(console.GetContext());
   }
 }

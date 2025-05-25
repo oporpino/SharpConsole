@@ -3,19 +3,25 @@ using SharpConsole.Domain.Outbound;
 
 namespace SharpConsole.Infrastructure;
 
-public class ConsoleDisplay : IConsoleDisplay
+public class ConsoleDisplay : IConsoleDisplay, IDisposable
 {
   private readonly IOutputFormatter _formatter;
   private readonly ICommandHistory _commandHistory;
   private readonly IInputHandler _inputHandler;
+  private readonly ILineCleaner _lineCleaner;
   private const string PROMPT = "> ";
   private readonly CancellationTokenSource _cancellationTokenSource;
 
-  public ConsoleDisplay(IOutputFormatter formatter, ICommandHistory commandHistory, IInputHandler inputHandler)
+  public ConsoleDisplay(
+    IOutputFormatter formatter,
+    ICommandHistory commandHistory,
+    IInputHandler inputHandler,
+    ILineCleaner lineCleaner)
   {
     _formatter = formatter;
     _commandHistory = commandHistory;
     _inputHandler = inputHandler;
+    _lineCleaner = lineCleaner;
     _cancellationTokenSource = new CancellationTokenSource();
   }
 
@@ -23,7 +29,7 @@ public class ConsoleDisplay : IConsoleDisplay
   {
     var input = string.Empty;
     var currentPosition = 0;
-    System.Console.Write(PROMPT);
+    Write(PROMPT);
 
     while (!_cancellationTokenSource.Token.IsCancellationRequested)
     {
@@ -40,7 +46,7 @@ public class ConsoleDisplay : IConsoleDisplay
 
       if (result.IsComplete)
       {
-        System.Console.WriteLine();
+        WriteLine(string.Empty);
         _commandHistory.AddCommand(result.State.Text);
         return result.State.Text;
       }
@@ -63,32 +69,39 @@ public class ConsoleDisplay : IConsoleDisplay
     System.Console.WriteLine(message);
   }
 
+  public void Write(string text)
+  {
+    System.Console.Write(text);
+  }
+
   public void ShowResult(object? result)
   {
     var formattedResult = _formatter.Format(result);
-    System.Console.WriteLine(formattedResult);
+    WriteLine(formattedResult);
   }
 
   public void ShowError(string message)
   {
     var previousColor = System.Console.ForegroundColor;
     System.Console.ForegroundColor = ConsoleColor.Red;
-    System.Console.WriteLine($"Error: {message}");
+    WriteLine($"Error: {message}");
     System.Console.ForegroundColor = previousColor;
   }
 
   public void ShowWelcome()
   {
-    System.Console.WriteLine("Welcome to SharpConsole!");
-    System.Console.WriteLine("Type 'exit' to quit.");
-    System.Console.WriteLine();
+    WriteLine("Welcome to SharpConsole!");
+    WriteLine("Type 'exit' to quit.");
+    WriteLine(string.Empty);
   }
 
-  private void ClearCurrentLine()
+  public void ClearCurrentLine()
   {
-    var currentLine = System.Console.CursorTop;
-    System.Console.SetCursorPosition(PROMPT.Length, currentLine);
-    System.Console.Write(new string(' ', System.Console.WindowWidth - PROMPT.Length));
-    System.Console.SetCursorPosition(PROMPT.Length, currentLine);
+    _lineCleaner.Clear();
+  }
+
+  public void WriteBackspace()
+  {
+    Write("\b \b");
   }
 }

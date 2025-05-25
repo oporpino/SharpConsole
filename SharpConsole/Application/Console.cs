@@ -6,11 +6,19 @@ namespace SharpConsole.Application;
 
 internal class Console
 {
-  public static async Task Start(IContext context)
-  {
-    ConsoleContext.SetContext(context);
+  private static bool _isInitialized;
 
-    var console = CreateConsoleUsecase.Call();
-    await console.Start();
+  public static void Start(dynamic context)
+  {
+    if (!_isInitialized)
+    {
+      ConsoleModule.Initialize();
+      _isInitialized = true;
+    }
+
+    ConsoleContext.Set(context);
+
+    var executor = CreateConsoleUsecase.Call();
+    executor.Execute();
   }
 }

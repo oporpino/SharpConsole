@@ -1,6 +1,6 @@
 namespace SharpConsole.Domain.Inbound;
 
-public interface IContext
+public interface ISharpConsole
 {
   object GetContext();
 }

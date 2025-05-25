@@ -12,7 +12,7 @@ public class RunConsoleTests
   public async Task Execute_ShouldProcessCommandsUntilExit()
   {
     // Arrange
-    var console = new Mock<IConsole>();
+    var console = new Mock<ISharpConsole>();
     var consoleUI = new Mock<IConsoleDisplay>();
     var runConsole = new RunConsole(console.Object, consoleUI.Object);
 
@@ -34,7 +34,7 @@ public class RunConsoleTests
   public async Task Execute_ShouldStopWhenStopIsCalled()
   {
     // Arrange
-    var console = new Mock<IConsole>();
+    var console = new Mock<ISharpConsole>();
     var consoleUI = new Mock<IConsoleDisplay>();
     var runConsole = new RunConsole(console.Object, consoleUI.Object);
 
@@ -51,7 +51,7 @@ public class RunConsoleTests
   public async Task Execute_ShouldIgnoreEmptyInput()
   {
     // Arrange
-    var console = new Mock<IConsole>();
+    var console = new Mock<ISharpConsole>();
     var consoleUI = new Mock<IConsoleDisplay>();
     var runConsole = new RunConsole(console.Object, consoleUI.Object);
 
