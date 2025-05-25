@@ -1,7 +1,7 @@
-using SharpConsoleCore.Domain.Inbound;
-using SharpConsoleCore.Domain.Outbound;
+using SharpConsole.Core.Domain.Inbound;
+using SharpConsole.Core.Domain.Outbound;
 
-namespace SharpConsoleCore.Domain.UseCases;
+namespace SharpConsole.Core.Domain.UseCases;
 
 public class RunConsole
 {

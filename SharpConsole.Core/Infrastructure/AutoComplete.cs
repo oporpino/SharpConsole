@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using SharpConsoleCore.Domain;
-using SharpConsoleCore.Application;
+using SharpConsole.Core.Domain;
+using SharpConsole.Core.Application;
 
-namespace SharpConsoleCore.Infrastructure;
+namespace SharpConsole.Core.Infrastructure;
 
 public class AutoComplete : IAutoCompletePort
 {

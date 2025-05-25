@@ -1,8 +1,8 @@
-using SharpConsoleCore.Domain.Entities;
-using SharpConsoleCore.Domain.Outbound;
-using SharpConsoleCore.Domain.Inbound;
+using SharpConsole.Core.Domain.Entities;
+using SharpConsole.Core.Domain.Outbound;
+using SharpConsole.Core.Domain.Inbound;
 
-namespace SharpConsoleCore.Domain.UseCases;
+namespace SharpConsole.Core.Domain.UseCases;
 
 public class CreateConsoleUsecase : UseCase<IConsoleExecutor>
 {

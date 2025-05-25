@@ -1,6 +1,6 @@
 using Xunit;
-using SharpConsoleCore.Domain;
-using SharpConsoleCore.Infrastructure;
+using SharpConsole.Core.Domain;
+using SharpConsole.Core.Infrastructure;
 
 namespace SharpConsole.Tests
 {

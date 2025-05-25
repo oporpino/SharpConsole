@@ -4,14 +4,30 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <RootNamespace>SharpConsoleCore</RootNamespace>
+    <RootNamespace>SharpConsole.Core</RootNamespace>
     <AssemblyName>SharpConsole.Core</AssemblyName>
+
+    <!-- NuGet Package Metadata -->
+    <PackageId>SharpConsole</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>oporpino</Authors>
+    <Description>A powerful console application framework for .NET that provides auto-completion, command execution, and more.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageTags>console;shell;repl;autocomplete</PackageTags>
+    <PackageProjectUrl>https://github.com/gporpino/SharpConsole</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/gporpino/SharpConsole.git</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Scripting" Version="4.5.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.5" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>

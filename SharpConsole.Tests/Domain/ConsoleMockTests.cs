@@ -1,11 +1,11 @@
-using SharpConsoleCore.Domain.Inbound;
-using SharpConsoleCore.Domain.Outbound;
-using SharpConsoleCore.Domain.UseCases;
+using SharpConsole.Core.Domain.Inbound;
+using SharpConsole.Core.Domain.Outbound;
+using SharpConsole.Core.Domain.UseCases;
 using ConsoleEntity = SharpConsole.Domain.Entities.Console;
 using Xunit;
 using Moq;
 
-namespace SharpConsoleCore.Tests.Domain;
+namespace SharpConsole.Core.Tests.Domain;
 
 public class ConsoleMockTests
 {

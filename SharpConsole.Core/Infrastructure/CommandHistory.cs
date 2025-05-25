@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using SharpConsoleCore.Domain.Outbound;
+using SharpConsole.Core.Domain.Outbound;
 
-namespace SharpConsoleCore.Infrastructure;
+namespace SharpConsole.Core.Infrastructure;
 
 public class CommandHistory : ICommandHistory
 {

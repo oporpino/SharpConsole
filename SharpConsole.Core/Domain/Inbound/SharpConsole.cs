@@ -1,4 +1,4 @@
-using SharpConsoleCore.Domain.Inbound;
+using SharpConsole.Core.Domain.Inbound;
 
 namespace SharpConsole;
 

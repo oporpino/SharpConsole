@@ -1,14 +1,14 @@
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
-using SharpConsoleCore.Domain.Outbound;
-using SharpConsoleCore.Domain.Inbound;
+using SharpConsole.Core.Domain.Outbound;
+using SharpConsole.Core.Domain.Inbound;
 using System.Linq;
-using SharpConsoleCore.Application;
+using SharpConsole.Core.Application;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
 
-namespace SharpConsoleCore.Infrastructure;
+namespace SharpConsole.Core.Infrastructure;
 
 public class ScriptEngine : IScriptEngine
 {

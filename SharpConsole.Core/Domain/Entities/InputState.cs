@@ -1,6 +1,6 @@
-using SharpConsoleCore.Domain.Inbound;
+using SharpConsole.Core.Domain.Inbound;
 
-namespace SharpConsoleCore.Domain.Entities;
+namespace SharpConsole.Core.Domain.Entities;
 
 public readonly struct InputState : IInputState
 {

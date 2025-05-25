@@ -1,6 +1,6 @@
-using SharpConsoleCore.Domain.Entities;
+using SharpConsole.Core.Domain.Entities;
 
-namespace SharpConsoleCore.Domain.Outbound;
+namespace SharpConsole.Core.Domain.Outbound;
 
 public interface IInputHandler
 {

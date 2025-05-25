@@ -1,6 +1,6 @@
-using SharpConsoleCore.Domain.Inbound;
+using SharpConsole.Core.Domain.Inbound;
 
-namespace SharpConsoleCore.Domain.Inbound;
+namespace SharpConsole.Core.Domain.Inbound;
 
 public abstract class SharpConsole : ISharpConsole
 {

@@ -1,10 +1,10 @@
 using System;
 using System.Linq;
-using SharpConsoleCore.Domain.Entities;
-using SharpConsoleCore.Domain.Outbound;
-using SharpConsoleCore.Domain;
+using SharpConsole.Core.Domain.Entities;
+using SharpConsole.Core.Domain.Outbound;
+using SharpConsole.Core.Domain;
 
-namespace SharpConsoleCore.Infrastructure;
+namespace SharpConsole.Core.Infrastructure;
 
 public class ConsoleInputHandler : IInputHandler
 {

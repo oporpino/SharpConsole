@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace SharpConsoleCore.Domain.Outbound;
+namespace SharpConsole.Core.Domain.Outbound;
 
 public interface ICommandHistory
 {

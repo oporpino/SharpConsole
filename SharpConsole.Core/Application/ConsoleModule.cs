@@ -1,12 +1,12 @@
 using Microsoft.Extensions.DependencyInjection;
-using SharpConsoleCore.Domain;
-using SharpConsoleCore.Domain.Entities;
-using SharpConsoleCore.Domain.Inbound;
-using SharpConsoleCore.Domain.Outbound;
-using SharpConsoleCore.Domain.UseCases;
-using SharpConsoleCore.Infrastructure;
+using SharpConsole.Core.Domain;
+using SharpConsole.Core.Domain.Entities;
+using SharpConsole.Core.Domain.Inbound;
+using SharpConsole.Core.Domain.Outbound;
+using SharpConsole.Core.Domain.UseCases;
+using SharpConsole.Core.Infrastructure;
 
-namespace SharpConsoleCore.Application;
+namespace SharpConsole.Core.Application;
 
 public static class ConsoleModule
 {

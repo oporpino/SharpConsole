@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using SharpConsoleCore.Application;
+using SharpConsole.Core.Application;
 using SharpConsole.Example.Infrastructure;
-using Console = SharpConsoleCore.Domain.Entities.SharpConsole;
+using SharpConsole.Core.Domain.Entities;
 
 namespace SharpConsole.Example;
 
@@ -31,7 +31,7 @@ public class Program
   }
 }
 
-public class CustomConsole : Console
+public class CustomConsole : SharpConsoleBase
 {
   public string Name { get; set; }
 

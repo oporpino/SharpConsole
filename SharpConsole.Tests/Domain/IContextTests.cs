@@ -1,7 +1,7 @@
-using SharpConsoleCore.Domain.Inbound;
+using SharpConsole.Core.Domain.Inbound;
 using Xunit;
 
-namespace SharpConsoleCore.Tests.Domain;
+namespace SharpConsole.Core.Tests.Domain;
 
 public class ISharpConsoleTests
 {

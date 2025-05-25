@@ -1,8 +1,8 @@
 using SharpConsole.Core.Domain.Inbound;
 
-namespace SharpConsole.Core;
+namespace SharpConsole.Domain.Entities;
 
-public abstract class SharpConsole : ISharpConsole
+public abstract class SharpConsoleBase : ISharpConsole
 {
   public virtual object GetContext()
   {

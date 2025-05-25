@@ -1,10 +1,10 @@
 using System.Text.Json;
-using SharpConsoleCore.Domain.Outbound;
+using SharpConsole.Core.Domain.Outbound;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SharpConsoleCore.Infrastructure;
+namespace SharpConsole.Core.Infrastructure;
 
 public class JsonOutputFormatter : IOutputFormatter
 {
