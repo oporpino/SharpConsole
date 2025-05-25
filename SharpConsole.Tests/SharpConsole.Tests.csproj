@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../SharpConsole/SharpConsole.csproj" />
+    <ProjectReference Include="../SharpConsole.Core/SharpConsole.Core.csproj" />
   </ItemGroup>
 
 </Project>

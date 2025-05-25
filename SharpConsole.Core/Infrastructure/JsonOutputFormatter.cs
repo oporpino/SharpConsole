@@ -1,6 +1,5 @@
 using System.Text.Json;
 using SharpConsole.Core.Domain.Outbound;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -23,21 +22,8 @@ public class JsonOutputFormatter : IOutputFormatter
   public string Format(object? value)
   {
     if (value == null) return "null";
-
     if (value is string str) return str;
-
-    var type = value.GetType();
-    if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(DbSet<>))
-    {
-      var list = ((dynamic)value).ToList();
-      return FormatEnumerable(list);
-    }
-
-    if (value is IEnumerable<object> enumerable)
-    {
-      return FormatEnumerable(enumerable);
-    }
-
+    if (value is IEnumerable<object> enumerable) return FormatEnumerable(enumerable);
     return JsonSerializer.Serialize(value, _options);
   }
 

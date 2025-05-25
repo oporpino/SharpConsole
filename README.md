@@ -13,10 +13,10 @@ A powerful console application framework for .NET that provides auto-completion,
 
 ## Installation
 
-Add the SharpConsole.Core package to your console project:
+Add the SharpConsole package to your console project:
 
 ```bash
-dotnet add package SharpConsole.Core
+dotnet add package SharpConsole
 ```
 
 ## Usage
