@@ -1,9 +1,9 @@
-using SharpConsole.Domain.Outbound;
-using SharpConsole.Infrastructure;
+using SharpConsoleCore.Domain.Outbound;
+using SharpConsoleCore.Infrastructure;
 using Xunit;
 using Moq;
 
-namespace SharpConsole.Tests.Infrastructure;
+namespace SharpConsoleCore.Tests.Infrastructure;
 
 public class ConsoleDisplayTests
 {

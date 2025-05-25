@@ -1,27 +1,20 @@
-using SharpConsole.Application;
-using SharpConsole.Domain.Inbound;
+using SharpConsoleCore.Application;
+using SharpConsoleCore.Domain.Entities;
 
-namespace SharpConsole.Example;
+namespace SharpConsoleCore.Example;
 
 public class Program
 {
-  public static async Task Main(string[] args)
+  public static void Main(string[] args)
   {
-    var console = new CustomContext();
-
+    var console = new CustomConsole();
     console.Start();
   }
 }
 
-public class CustomConsole : ISharpConsole
+public class CustomConsole : SharpConsole
 {
-  public object GetContext()
-  {
-    return new Context { Name = "Test" };
-  }
-}
-
-public class Context
-{
-  public string Name { get; set; } = string.Empty;
+  public string Name { get; set; } = "Test";
+  public int Age { get; set; } = 25;
+  public string[] Tags { get; set; } = new[] { "tag1", "tag2" };
 }

@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace SharpConsole.Domain;
+namespace SharpConsoleCore.Domain;
 
 public static class DependencyContainer
 {

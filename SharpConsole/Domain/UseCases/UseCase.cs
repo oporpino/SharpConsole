@@ -1,7 +1,7 @@
 using Microsoft.Extensions.DependencyInjection;
-using SharpConsole.Domain.Inbound;
+using SharpConsoleCore.Domain.Inbound;
 
-namespace SharpConsole.Domain.UseCases;
+namespace SharpConsoleCore.Domain.UseCases;
 
 public abstract class UseCase<T> : IUseCase<T>
 {

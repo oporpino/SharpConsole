@@ -1,6 +1,6 @@
-using SharpConsole.Domain.Inbound;
+using SharpConsoleCore.Domain.Inbound;
 
-namespace SharpConsole.Application;
+namespace SharpConsoleCore.Application;
 
 public static class ConsoleContext
 {

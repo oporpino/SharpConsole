@@ -1,6 +1,6 @@
-using SharpConsole.Domain.Inbound;
+using SharpConsoleCore.Domain.Inbound;
 
-namespace SharpConsole.Domain.Entities;
+namespace SharpConsoleCore.Domain.Entities;
 
 public readonly struct InputResult
 {

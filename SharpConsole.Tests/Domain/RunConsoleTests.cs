@@ -1,10 +1,10 @@
-using SharpConsole.Domain.Inbound;
-using SharpConsole.Domain.Outbound;
-using SharpConsole.Domain.UseCases;
+using SharpConsoleCore.Domain.Inbound;
+using SharpConsoleCore.Domain.Outbound;
+using SharpConsoleCore.Domain.UseCases;
 using Xunit;
 using Moq;
 
-namespace SharpConsole.Tests.Domain;
+namespace SharpConsoleCore.Tests.Domain;
 
 public class RunConsoleTests
 {

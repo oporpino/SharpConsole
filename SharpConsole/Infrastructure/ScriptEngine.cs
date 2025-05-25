@@ -1,12 +1,14 @@
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
-using SharpConsole.Domain.Outbound;
-using SharpConsole.Domain.Inbound;
+using SharpConsoleCore.Domain.Outbound;
+using SharpConsoleCore.Domain.Inbound;
 using System.Linq;
-using SharpConsole.Application;
+using SharpConsoleCore.Application;
 using System.Collections.Generic;
+using System.Dynamic;
+using System.Runtime.CompilerServices;
 
-namespace SharpConsole.Infrastructure;
+namespace SharpConsoleCore.Infrastructure;
 
 public class ScriptEngine : IScriptEngine
 {
@@ -16,9 +18,11 @@ public class ScriptEngine : IScriptEngine
     try
     {
       var options = ScriptOptions.Default
-        .WithImports("System", "System.Linq", "System.Collections.Generic")
+        .WithImports("System", "System.Linq", "System.Collections.Generic", "System.Dynamic", "System.Runtime.CompilerServices")
         .AddReferences(typeof(Enumerable).Assembly)
         .AddReferences(typeof(Dictionary<string, object>).Assembly)
+        .AddReferences(typeof(ExpandoObject).Assembly)
+        .AddReferences(typeof(DynamicAttribute).Assembly)
         .WithEmitDebugInformation(true);
 
       var scriptState = await CSharpScript.RunAsync(command, options, context);

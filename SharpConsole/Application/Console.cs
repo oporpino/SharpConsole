@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
-using SharpConsole.Domain.Inbound;
-using SharpConsole.Domain.UseCases;
+using SharpConsoleCore.Domain.Inbound;
+using SharpConsoleCore.Domain.UseCases;
 
-namespace SharpConsole.Application;
+namespace SharpConsoleCore.Application;
 
 internal class Console
 {

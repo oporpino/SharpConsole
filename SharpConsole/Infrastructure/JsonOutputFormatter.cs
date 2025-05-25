@@ -1,7 +1,7 @@
 using System.Text.Json;
-using SharpConsole.Domain.Outbound;
+using SharpConsoleCore.Domain.Outbound;
 
-namespace SharpConsole.Infrastructure;
+namespace SharpConsoleCore.Infrastructure;
 
 public class JsonOutputFormatter : IOutputFormatter
 {
