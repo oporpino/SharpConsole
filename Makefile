@@ -1,4 +1,4 @@
-.PHONY: run test clean build
+.PHONY: run test clean build help
 
 # Run the example project
 run:
@@ -16,3 +16,7 @@ build:
 clean:
 	dotnet clean
 	rm -rf **/bin/ **/obj/
+
+# Show help
+help:
+	@.scripts/make/help
