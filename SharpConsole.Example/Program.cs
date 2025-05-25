@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using SharpConsole.Core.Application;
 using SharpConsole.Example.Infrastructure;
 using SharpConsole.Core.Domain.Entities;
