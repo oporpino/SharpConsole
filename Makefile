@@ -1,5 +1,7 @@
 .PHONY: run test clean build help
 
+include .commons/Makefile
+
 # Run the example project
 run:
 	dotnet run --project SharpConsole.Example
@@ -19,4 +21,4 @@ clean:
 
 # Show help
 help:
-	@.scripts/make/help
+	@.commons/scripts/make/help
