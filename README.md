@@ -72,8 +72,25 @@ Now you can interact with the console:
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Feel free to submit a Pull Request.
 
 ## License
 
-This project is licensed under the GNU General Public License v3.0 - see the LICENSE file for details.
+This project is licensed under a custom license based on the Apache License 2.0 with additional restrictions to protect the source code:
+
+- Use of this software is permitted for both commercial and non-commercial purposes via official package distribution channels only (e.g., NuGet.org).
+- The source code may not be copied, forked, mirrored, or redistributed in whole or in part, whether modified or unmodified, without explicit written permission from the author.
+- Republishing or re-hosting the source code, including forks or derived public repositories, is strictly prohibited.
+- This license grants permission to use, execute, and link against the compiled version of the software.
+
+Please refer to the full license in the [LICENSE](LICENSE) file.
+
+## License of the `.examples` folder
+
+The files in this folder are provided solely for demonstration and learning purposes.
+
+You may **copy and adapt code snippets** for your own projects, including commercial ones.
+
+However, **redistributing, forking, or publishing this folder as a whole or in derived form is prohibited without explicit permission from the author**.
+
+For more details, please see the main license file in the root repository.
