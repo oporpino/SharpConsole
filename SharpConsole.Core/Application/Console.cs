@@ -8,7 +8,7 @@ internal class Console
 {
   private static bool _isInitialized;
 
-  public static void Start(dynamic context)
+  internal static void Start(dynamic context)
   {
     if (!_isInitialized)
     {
