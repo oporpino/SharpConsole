@@ -1,16 +1,21 @@
+using System;
+using System.Linq;
 using SharpConsoleCore.Domain.Entities;
 using SharpConsoleCore.Domain.Outbound;
+using SharpConsoleCore.Domain;
 
 namespace SharpConsoleCore.Infrastructure;
 
 public class ConsoleInputHandler : IInputHandler
 {
   private readonly IConsoleManager _consoleManager;
+  private readonly IAutoCompletePort _autoComplete;
   private const string PROMPT = "> ";
 
-  public ConsoleInputHandler(IConsoleManager consoleManager)
+  public ConsoleInputHandler(IConsoleManager consoleManager, IAutoCompletePort autoComplete)
   {
     _consoleManager = consoleManager;
+    _autoComplete = autoComplete;
   }
 
   public InputResult Handle(ConsoleInput input)
@@ -21,6 +26,7 @@ public class ConsoleInputHandler : IInputHandler
       ConsoleKey.UpArrow => HandleUpArrow(input),
       ConsoleKey.DownArrow => HandleDownArrow(input),
       ConsoleKey.Backspace => HandleBackspace(input),
+      ConsoleKey.Tab => HandleTab(input),
       _ => HandleCharacter(input)
     };
   }
@@ -60,6 +66,19 @@ public class ConsoleInputHandler : IInputHandler
     var newPosition = input.State.Position - 1;
     _consoleManager.WriteBackspace();
     return new InputResult(new InputState(newText, newPosition), false);
+  }
+
+  private InputResult HandleTab(ConsoleInput input)
+  {
+    var suggestions = _autoComplete.GetSuggestions(input.State.Text);
+    if (!suggestions.Any())
+      return new InputResult(input.State, false);
+
+    var suggestion = _autoComplete.GetNextSuggestion();
+    _consoleManager.ClearCurrentLine();
+    _consoleManager.Write(PROMPT);
+    _consoleManager.Write(suggestion);
+    return new InputResult(new InputState(suggestion, suggestion.Length), false);
   }
 
   private InputResult HandleCharacter(ConsoleInput input)

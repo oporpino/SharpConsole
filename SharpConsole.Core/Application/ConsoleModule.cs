@@ -19,6 +19,7 @@ public static class ConsoleModule
     services.AddSingleton<IScriptEngine, ScriptEngine>();
     services.AddSingleton<IConsoleDisplay, ConsoleDisplay>();
     services.AddSingleton<ICommandHistory, CommandHistory>();
+    services.AddSingleton<IAutoCompletePort, AutoComplete>();
     services.AddSingleton<IInputHandler, ConsoleInputHandler>();
     services.AddSingleton<IConsoleManager, ConsoleManager>();
     services.AddSingleton<ILineCleaner, ConsoleLineCleaner>();
