@@ -7,14 +7,20 @@ public class Program
 {
   public static void Main(string[] args)
   {
-    var console = new CustomConsole();
+    var console = new CustomConsole()
+    {
+      Name = "Test",
+      Age = 25,
+      Tags = new[] { "tag1", "tag2" }
+    };
+
     console.Start();
   }
 }
 
 public class CustomConsole : SharpConsole
 {
-  public string Name { get; set; } = "Test";
-  public int Age { get; set; } = 25;
-  public string[] Tags { get; set; } = new[] { "tag1", "tag2" };
+  public string Name { get; set; }
+  public int Age { get; set; }
+  public string[] Tags { get; set; }
 }
