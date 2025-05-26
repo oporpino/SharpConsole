@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  run:
+    build:
+      context: ../../
+      dockerfile: docker/entity-inmemory/Dockerfile.EntityInMemory

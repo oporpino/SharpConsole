@@ -15,3 +15,6 @@ run.simple:
 	docker compose build sharpconsole.simple
 	docker compose run --rm sharpconsole.simple
 
+run.entity.inmemory:
+	docker compose build sharpconsole.entity.inmemory
+	docker compose run --rm sharpconsole.entity.inmemory
