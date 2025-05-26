@@ -1,6 +1,6 @@
 using SharpConsole.Core.Domain.Inbound;
 
-namespace SharpConsole.Domain.Entities;
+namespace SharpConsole.Core.Application;
 
 public abstract class SharpConsoleBase : ISharpConsole
 {
