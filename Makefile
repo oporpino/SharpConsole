@@ -1,7 +1,6 @@
-.PHONY: build run clean
+include .commons/Makefile
 
-# Default target
-all: build run
+.PHONY: build run clean
 
 # Build the container
 build:
@@ -15,3 +14,4 @@ clean:
 run.simple:
 	docker compose build sharpconsole.simple
 	docker compose run --rm sharpconsole.simple
+
