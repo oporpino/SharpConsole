@@ -9,7 +9,7 @@
 
     <!-- NuGet Package Metadata -->
     <PackageId>SharpConsole</PackageId>
-    <Version>0.0.4</Version>
+    <Version>0.0.5</Version>
     <Authors>oporpino</Authors>
     <Description>A powerful console application framework for .NET that provides auto-completion, command execution, and more.</Description>
     <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>

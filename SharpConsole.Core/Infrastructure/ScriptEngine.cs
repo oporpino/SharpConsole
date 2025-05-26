@@ -8,65 +8,66 @@ using System.Collections.Generic;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
 using System.Reflection;
+using Microsoft.CodeAnalysis;
 
 namespace SharpConsole.Core.Infrastructure;
 
 public class ScriptEngine : IScriptEngine
 {
   private ScriptState<object>? _scriptState;
+  private ScriptOptions _scriptOptions;
+
+  public ScriptEngine()
+  {
+    var assemblies = AppDomain.CurrentDomain.GetAssemblies()
+      .Where(a => !a.IsDynamic && !string.IsNullOrEmpty(a.Location))
+      .ToList();
+
+    var baseImports = new List<string> {
+      "System",
+      "System.Linq",
+      "System.Collections.Generic",
+      "System.Dynamic",
+      "System.Runtime.CompilerServices",
+      "System.Threading.Tasks"
+    };
+
+    _scriptOptions = ScriptOptions.Default
+      .WithImports(baseImports)
+      .AddReferences(assemblies)
+      .WithEmitDebugInformation(true)
+      .WithOptimizationLevel(OptimizationLevel.Debug);
+  }
 
   public async Task<object?> Execute(string command)
   {
     var context = ConsoleContext.Get();
     try
     {
-      var assemblies = AppDomain.CurrentDomain.GetAssemblies()
-        .Where(a => !a.IsDynamic && !string.IsNullOrEmpty(a.Location))
-        .ToList();
+      var script = _scriptState == null
+        ? CSharpScript.Create(command, _scriptOptions, context.GetType())
+        : _scriptState.Script.ContinueWith(command);
 
-      var exampleAssemblies = assemblies
-        .Where(a => a.GetName().Name?.StartsWith("SharpConsoleExamples") == true)
-        .ToList();
+      _scriptState = await script.RunAsync(context);
 
-      var baseImports = new List<string> {
-        "System",
-        "System.Linq",
-        "System.Collections.Generic",
-        "System.Dynamic",
-        "System.Runtime.CompilerServices"
-      };
-
-      if (assemblies.Any(a => a.GetName().Name?.Contains("EntityFrameworkCore") == true))
+      // Update context with new variables
+      if (_scriptState != null)
       {
-        baseImports.Add("Microsoft.EntityFrameworkCore");
+        foreach (var variable in _scriptState.Variables)
+        {
+          var property = context.GetType().GetProperty(variable.Name);
+          if (property != null)
+          {
+            property.SetValue(context, variable.Value);
+          }
+        }
       }
-
-      var options = ScriptOptions.Default
-        .WithImports(baseImports)
-        .AddReferences(assemblies)
-        .WithEmitDebugInformation(true);
-
-      if (exampleAssemblies.Any())
-      {
-        var exampleNamespaces = exampleAssemblies
-          .SelectMany(a => a.GetTypes())
-          .Select(t => t.Namespace)
-          .Where(n => n != null)
-          .Distinct()
-          .ToList();
-
-        options = options.WithImports(exampleNamespaces);
-      }
-
-      _scriptState = _scriptState == null
-        ? await CSharpScript.RunAsync(command, options, context)
-        : await _scriptState.ContinueWithAsync(command);
 
       if (_scriptState.ReturnValue == null && command.Trim().StartsWith("var "))
       {
         var variableName = command.Split('=')[0].Trim().Split(' ')[1];
-        var globals = _scriptState.Variables.FirstOrDefault(v => v.Name == variableName);
-        return globals?.Value;
+        var scriptVariable = _scriptState.Variables.FirstOrDefault(v => v.Name == variableName);
+        return scriptVariable?.Value;
       }
 
       if (_scriptState.ReturnValue is Task task)
@@ -82,5 +83,38 @@ public class ScriptEngine : IScriptEngine
     {
       throw new Exception($"Error executing script: {ex.Message}");
     }
+  }
+}
+
+public class ScriptGlobals : DynamicObject
+{
+  private readonly Dictionary<string, object> _variables;
+
+  public ScriptGlobals(dynamic context)
+  {
+    _variables = new Dictionary<string, object>();
+
+    // Copy all properties from context
+    foreach (var property in context.GetType().GetProperties())
+    {
+      var value = property.GetValue(context);
+      _variables[property.Name] = value;
+    }
+  }
+
+  public void SetVariable(string name, object value)
+  {
+    _variables[name] = value;
+  }
+
+  public override bool TryGetMember(GetMemberBinder binder, out object result)
+  {
+    return _variables.TryGetValue(binder.Name, out result);
+  }
+
+  public override bool TrySetMember(SetMemberBinder binder, object value)
+  {
+    _variables[binder.Name] = value;
+    return true;
   }
 }
