@@ -1,24 +1,17 @@
-.PHONY: run test clean build help
+.PHONY: build run clean
 
-include .commons/Makefile
+# Default target
+all: build run
 
-# Run the example project
-run:
-	dotnet run --project SharpConsole.Example
-
-# Run all tests
-test:
-	dotnet test --logger "console;verbosity=detailed"
-
-# Build the solution
+# Build the container
 build:
-	dotnet build
+	docker compose build
 
-# Clean build artifacts
+# Clean up containers and volumes
 clean:
-	dotnet clean
-	rm -rf **/bin/ **/obj/
+	docker compose down -v
 
-# Show help
-help:
-	@.commons/scripts/make/help
+# Run the container
+run.simple:
+	docker compose build sharpconsole.simple
+	docker compose run --rm sharpconsole.simple

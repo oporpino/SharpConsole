@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  run:
+    build:
+      context: ../../
+      dockerfile: docker/simple/Dockerfile.Simple

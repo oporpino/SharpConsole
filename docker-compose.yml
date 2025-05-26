@@ -1,0 +1,8 @@
+
+services:
+  sharpconsole.simple:
+    extends:
+      file: docker/simple/docker-compose.simple.yml
+      service: run
+
+
