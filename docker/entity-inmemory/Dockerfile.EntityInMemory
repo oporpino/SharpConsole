@@ -3,10 +3,10 @@ WORKDIR /src
 
 # Copy the solution and project files
 COPY SharpConsole.Core/ ./SharpConsole.Core/
-COPY .examples/SharpConsole.EntityInMemory/ ./SharpConsole.EntityInMemory/
+COPY .examples/SharpConsoleExamples.EntityInMemory/ ./SharpConsoleExamples.EntityInMemory/
 
 # Replace NuGet package with project reference
-RUN sed -i 's/<PackageReference Include="SharpConsole" Version="0.0.4" \/>/<ProjectReference Include="..\/SharpConsole.Core\/SharpConsole.Core.csproj" \/>/' SharpConsole.EntityInMemory/SharpConsole.EntityInMemory.csproj
+RUN sed -i 's/<PackageReference Include="SharpConsole" Version="0.0.4" \/>/<ProjectReference Include="..\/SharpConsole.Core\/SharpConsole.Core.csproj" \/>/' SharpConsoleExamples.EntityInMemory/SharpConsoleExamples.EntityInMemory.csproj
 
 # Copy the rest of the code
 COPY . .
@@ -15,13 +15,13 @@ COPY . .
 RUN dotnet restore
 
 # Build the project
-RUN dotnet build SharpConsole.EntityInMemory/SharpConsole.EntityInMemory.csproj -c Release
+RUN dotnet build SharpConsoleExamples.EntityInMemory/SharpConsoleExamples.EntityInMemory.csproj -c Release
 
 # Build and publish
-RUN dotnet publish SharpConsole.EntityInMemory/SharpConsole.EntityInMemory.csproj -c Release -o /publish
+RUN dotnet publish SharpConsoleExamples.EntityInMemory/SharpConsoleExamples.EntityInMemory.csproj -c Release -o /publish
 
 FROM mcr.microsoft.com/dotnet/runtime:8.0 AS final
 WORKDIR /app
 COPY --from=build /publish .
 
-CMD ["dotnet", "SharpConsole.EntityInMemory.dll"]
+CMD ["dotnet", "SharpConsoleExamples.EntityInMemory.dll"]
