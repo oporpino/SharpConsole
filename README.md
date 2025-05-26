@@ -40,7 +40,7 @@ public class CustomConsole : SharpConsoleBase
 ```csharp
 using Microsoft.EntityFrameworkCore;
 using SharpConsole.Core.Application;
-using SharpConsole.Core.Domain.Entities;
+using SharpConsole.Domain.Entities;
 
 var options = new DbContextOptionsBuilder<AppDbContext>()
     .UseInMemoryDatabase(databaseName: "ExampleDb")

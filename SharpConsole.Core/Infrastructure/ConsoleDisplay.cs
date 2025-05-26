@@ -1,5 +1,5 @@
-using SharpConsole.Core.Domain.Entities;
-using SharpConsole.Core.Domain.Outbound;
+using SharpConsole.Domain.Entities;
+using SharpConsole.Domain.Outbound;
 
 namespace SharpConsole.Core.Infrastructure;
 

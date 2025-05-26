@@ -1,12 +1,12 @@
 using Xunit;
-using SharpConsole.Core.Domain;
+using SharpConsole.Domain;
 using SharpConsole.Core.Infrastructure;
 
 namespace SharpConsole.Tests
 {
   public class AutoCompleteTests
   {
-    private readonly IAutoCompletePort _autoComplete;
+    private readonly IAutoComplete _autoComplete;
 
     public AutoCompleteTests()
     {

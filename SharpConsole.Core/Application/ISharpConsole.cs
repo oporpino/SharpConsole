@@ -1,4 +1,4 @@
-namespace SharpConsole.Core.Domain.Inbound;
+namespace SharpConsole.Core.Application;
 
 public interface ISharpConsole
 {

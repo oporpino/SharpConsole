@@ -1,18 +1,18 @@
 using System;
 using System.Linq;
-using SharpConsole.Core.Domain.Entities;
-using SharpConsole.Core.Domain.Outbound;
-using SharpConsole.Core.Domain;
+using SharpConsole.Domain.Entities;
+using SharpConsole.Domain.Outbound;
+using SharpConsole.Domain;
 
 namespace SharpConsole.Core.Infrastructure;
 
 public class ConsoleInputHandler : IInputHandler
 {
   private readonly IConsoleManager _consoleManager;
-  private readonly IAutoCompletePort _autoComplete;
+  private readonly IAutoComplete _autoComplete;
   private const string PROMPT = "> ";
 
-  public ConsoleInputHandler(IConsoleManager consoleManager, IAutoCompletePort autoComplete)
+  public ConsoleInputHandler(IConsoleManager consoleManager, IAutoComplete autoComplete)
   {
     _consoleManager = consoleManager;
     _autoComplete = autoComplete;

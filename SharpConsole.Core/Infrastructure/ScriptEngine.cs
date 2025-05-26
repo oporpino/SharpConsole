@@ -1,7 +1,7 @@
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using Microsoft.CodeAnalysis.Scripting;
-using SharpConsole.Core.Domain.Outbound;
-using SharpConsole.Core.Domain.Inbound;
+using SharpConsole.Domain.Outbound;
+using SharpConsole.Domain.Inbound;
 using System.Linq;
 using SharpConsole.Core.Application;
 using System.Collections.Generic;

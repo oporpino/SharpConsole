@@ -1,4 +1,4 @@
-namespace SharpConsole.Core.Domain.Outbound;
+namespace SharpConsole.Domain.Outbound;
 
 public interface IConsoleManager
 {

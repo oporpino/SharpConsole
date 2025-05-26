@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using SharpConsole.Core.Domain;
+using SharpConsole.Domain.Outbound;
 using SharpConsole.Core.Application;
 
 namespace SharpConsole.Core.Infrastructure;
 
-public class AutoComplete : IAutoCompletePort
+public class AutoComplete : IAutoComplete
 {
   private readonly List<string> _suggestions;
   private int _currentIndex;

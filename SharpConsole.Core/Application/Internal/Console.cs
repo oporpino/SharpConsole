@@ -1,8 +1,7 @@
-using Microsoft.Extensions.DependencyInjection;
-using SharpConsole.Core.Domain.Inbound;
-using SharpConsole.Core.Domain.UseCases;
+using SharpConsole.Domain.Outbound;
+using SharpConsole.Domain;
 
-namespace SharpConsole.Core.Application;
+namespace SharpConsole.Core.Application.Internal;
 
 internal class Console
 {
@@ -18,7 +17,7 @@ internal class Console
 
     ConsoleContext.Set(context);
 
-    var executor = CreateConsoleUsecase.Call();
-    executor.Execute();
+    var domainContext = DependencyContainer.Instance.GetService<DomainContext>();
+    domainContext.RunConsole();
   }
 }

@@ -1,4 +1,4 @@
-using SharpConsole.Core.Domain.Inbound;
+using SharpConsole.Domain.Inbound;
 
 namespace SharpConsole.Core.Application;
 
@@ -6,7 +6,7 @@ public static class ConsoleContext
 {
   private static dynamic? _context;
 
-  public static void Set(dynamic context)
+  internal static void Set(dynamic context)
   {
     _context = context;
   }

@@ -1,32 +1,32 @@
 using Microsoft.Extensions.DependencyInjection;
-using SharpConsole.Core.Domain;
-using SharpConsole.Core.Domain.Entities;
-using SharpConsole.Core.Domain.Inbound;
-using SharpConsole.Core.Domain.Outbound;
-using SharpConsole.Core.Domain.UseCases;
+using SharpConsole.Domain;
+using SharpConsole.Domain.Entities;
+using SharpConsole.Domain.Inbound;
+using SharpConsole.Domain.Outbound;
+using SharpConsole.Domain.UseCases;
 using SharpConsole.Core.Infrastructure;
+using SharpConsole.Core.Application.Internal;
+using Console = SharpConsole.Core.Application.Internal.Console;
 
 namespace SharpConsole.Core.Application;
 
-public static class ConsoleModule
+internal static class ConsoleModule
 {
-  public static IServiceCollection AddConsoleModule(this IServiceCollection services)
+  internal static IServiceCollection Configure(this IServiceCollection services)
   {
     // Register domain entities
     services.AddSingleton<IConsoleExecutor, ConsoleExecutor>();
+    services.AddSingleton<DomainContext>();
 
     // Register infrastructure implementations for domain interfaces
     services.AddSingleton<IScriptEngine, ScriptEngine>();
     services.AddSingleton<IConsoleDisplay, ConsoleDisplay>();
     services.AddSingleton<ICommandHistory, CommandHistory>();
-    services.AddSingleton<IAutoCompletePort, AutoComplete>();
+    services.AddSingleton<IAutoComplete, AutoComplete>();
     services.AddSingleton<IInputHandler, ConsoleInputHandler>();
     services.AddSingleton<IConsoleManager, ConsoleManager>();
     services.AddSingleton<ILineCleaner, ConsoleLineCleaner>();
     services.AddSingleton<IOutputFormatter, JsonOutputFormatter>();
-
-    // Register use cases
-    services.AddSingleton<IUseCase<IConsoleExecutor>, CreateConsoleUsecase>();
 
     // Register application services
     services.AddSingleton<Console>();
@@ -34,11 +34,12 @@ public static class ConsoleModule
     return services;
   }
 
-  public static void Initialize()
+  internal static void Initialize()
   {
     var services = new ServiceCollection();
-    services.AddConsoleModule();
+    services.Configure();
+
     var serviceProvider = services.BuildServiceProvider();
-    DependencyContainer.Initialize(serviceProvider);
+    DependencyContainer.Instance.Initialize(serviceProvider);
   }
 }

@@ -29,4 +29,8 @@
     <None Include="../README.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SharpConsole.Domain\SharpConsole.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

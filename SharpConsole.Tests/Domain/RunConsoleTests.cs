@@ -1,6 +1,6 @@
-using SharpConsole.Core.Domain.Inbound;
-using SharpConsole.Core.Domain.Outbound;
-using SharpConsole.Core.Domain.UseCases;
+using SharpConsole.Domain.Inbound;
+using SharpConsole.Domain.Outbound;
+using SharpConsole.Domain.UseCases;
 using Xunit;
 using Moq;
 
@@ -8,6 +8,20 @@ namespace SharpConsole.Core.Tests.Domain;
 
 public class RunConsoleTests
 {
+  [Fact]
+  public void Call_ShouldCreateInstanceAndExecute()
+  {
+    // Arrange
+    var executor = new Mock<IConsoleExecutor>();
+    var display = new Mock<IConsoleDisplay>();
+
+    // Act
+    RunConsole.Call(executor.Object, display.Object);
+
+    // Assert
+    executor.Verify(e => e.Execute(), Times.Once);
+  }
+
   [Fact]
   public async Task Execute_ShouldProcessCommandsUntilExit()
   {

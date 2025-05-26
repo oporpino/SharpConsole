@@ -1,4 +1,4 @@
-using SharpConsole.Core.Domain.Inbound;
+using SharpConsole.Domain.Inbound;
 using SharpConsole.Core.Infrastructure;
 using Xunit;
 using Moq;

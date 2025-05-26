@@ -1,6 +1,6 @@
-using SharpConsole.Core.Domain.Inbound;
-using SharpConsole.Core.Domain.Outbound;
-using SharpConsole.Core.Domain.UseCases;
+using SharpConsole.Domain.Inbound;
+using SharpConsole.Domain.Outbound;
+using SharpConsole.Domain.UseCases;
 using SharpConsole.Core.Infrastructure;
 using ConsoleEntity = SharpConsole.Domain.Entities.Console;
 using Xunit;

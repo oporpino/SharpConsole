@@ -1,7 +1,7 @@
-using SharpConsole.Core.Domain.Inbound;
-using SharpConsole.Core.Domain.Outbound;
+using SharpConsole.Domain.Inbound;
+using SharpConsole.Domain.Outbound;
 
-namespace SharpConsole.Core.Domain.Entities;
+namespace SharpConsole.Domain.Entities;
 
 public class ConsoleExecutor : IConsoleExecutor
 {

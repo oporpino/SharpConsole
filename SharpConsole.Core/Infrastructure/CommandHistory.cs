@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
-using SharpConsole.Core.Domain.Outbound;
+using SharpConsole.Domain.Outbound;
 
 namespace SharpConsole.Core.Infrastructure;
 
