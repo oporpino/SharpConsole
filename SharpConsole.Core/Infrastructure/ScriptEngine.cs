@@ -28,8 +28,21 @@ public class ScriptEngine : IScriptEngine
         .Where(a => a.GetName().Name?.StartsWith("SharpConsoleExamples") == true)
         .ToList();
 
+      var baseImports = new List<string> {
+        "System",
+        "System.Linq",
+        "System.Collections.Generic",
+        "System.Dynamic",
+        "System.Runtime.CompilerServices"
+      };
+
+      if (assemblies.Any(a => a.GetName().Name?.Contains("EntityFrameworkCore") == true))
+      {
+        baseImports.Add("Microsoft.EntityFrameworkCore");
+      }
+
       var options = ScriptOptions.Default
-        .WithImports("System", "System.Linq", "System.Collections.Generic", "System.Dynamic", "System.Runtime.CompilerServices")
+        .WithImports(baseImports)
         .AddReferences(assemblies)
         .WithEmitDebugInformation(true);
 
@@ -49,7 +62,21 @@ public class ScriptEngine : IScriptEngine
         ? await CSharpScript.RunAsync(command, options, context)
         : await _scriptState.ContinueWithAsync(command);
 
-      return _scriptState.ReturnValue;
+      if (_scriptState.ReturnValue == null && command.Trim().StartsWith("var "))
+      {
+        var variableName = command.Split('=')[0].Trim().Split(' ')[1];
+        var globals = _scriptState.Variables.FirstOrDefault(v => v.Name == variableName);
+        return globals?.Value;
+      }
+
+      if (_scriptState.ReturnValue is Task task)
+      {
+        await task;
+        var result = task.GetType().GetProperty("Result")?.GetValue(task);
+        return result ?? "Done";
+      }
+
+      return _scriptState.ReturnValue ?? "Done";
     }
     catch (Exception ex)
     {
