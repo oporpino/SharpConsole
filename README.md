@@ -70,6 +70,18 @@ Now you can interact with the console:
 - Type `db.Users` to see the database context
 - Type `exit` to quit
 
+## Example Project
+
+To help you get started quickly, we've created a comprehensive example project that demonstrates all the features of SharpConsole. The example includes:
+
+- Basic property access and navigation
+- Entity Framework Core integration
+- Custom command implementation
+- Dependency injection setup
+- Best practices and patterns
+
+You can find the example project at: [SharpConsole.Examples](https://github.com/oporpino/SharpConsole.Examples)
+
 ## Contributing
 
 Contributions are welcome! Feel free to submit a Pull Request.
