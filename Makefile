@@ -6,18 +6,18 @@ include .commons/Makefile
 build:
 	docker compose build
 
-# Clean up containers and volumes
-clean:
-	docker compose down -v
-
 # Run the container
 run.simple:
 	docker compose build sharpconsole.simple
 	docker compose run --rm sharpconsole.simple
 
-run.entity-inmemory:
-	docker compose build sharpconsole.entity-inmemory
-	docker compose run --rm sharpconsole.entity-inmemory
+run.entity-in-memory:
+	docker compose build sharpconsole.entity-in-memory
+	docker compose run --rm sharpconsole.entity-in-memory
+
+run.entity-with-database:
+	docker compose build sharpconsole.entity-with-database
+	docker compose run --rm sharpconsole.entity-with-database
 
 run.examples.simple:
 	docker compose -f .examples/docker-compose.yml build sharpconsole.examples.simple

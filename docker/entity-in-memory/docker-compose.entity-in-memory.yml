@@ -4,4 +4,4 @@ services:
   run:
     build:
       context: ../../
-      dockerfile: docker/entity-inmemory/Dockerfile.EntityInMemory
+      dockerfile: docker/entity-in-memory/Dockerfile.EntityInMemory

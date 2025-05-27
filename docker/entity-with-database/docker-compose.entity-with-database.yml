@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  run:
+    build:
+      context: ../../
+      dockerfile: docker/entity-with-database/Dockerfile.EntityWithDatabase
+    environment:
+      - POSTGRES_CONNECTION_STRING=Host=postgres;Database=sharpconsole;Username=postgres;Password=postgres
+
+

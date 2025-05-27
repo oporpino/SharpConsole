@@ -1,4 +1,3 @@
-
 services:
   sharpconsole.simple:
     extends:
@@ -10,4 +9,23 @@ services:
       file: docker/entity-in-memory/docker-compose.entity-in-memory.yml
       service: run
 
+  sharpconsole.entity-with-database:
+    extends:
+      file: docker/entity-with-database/docker-compose.entity-with-database.yml
+      service: run
+    networks:
+      - sharpconsole-entity-with-database-network
+    depends_on:
+      postgres:
+        condition: service_healthy
 
+  postgres:
+    extends:
+      file: docker/database/docker-compose.database.yml
+      service: postgres
+    networks:
+      - sharpconsole-entity-with-database-network
+
+networks:
+  sharpconsole-entity-with-database-network:
+    driver: bridge
