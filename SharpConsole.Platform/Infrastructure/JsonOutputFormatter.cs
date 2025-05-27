@@ -1,5 +1,5 @@
 using System.Text.Json;
-using SharpConsole.Domain.Outbound;
+using SharpConsole.Core.Outbound;
 using System.Collections.Generic;
 using System.Linq;
 

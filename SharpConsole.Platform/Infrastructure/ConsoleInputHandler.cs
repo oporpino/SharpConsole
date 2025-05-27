@@ -1,8 +1,8 @@
 using System;
 using System.Linq;
-using SharpConsole.Domain.Entities;
-using SharpConsole.Domain.Outbound;
-using SharpConsole.Domain;
+using SharpConsole.Core.Entities;
+using SharpConsole.Core.Outbound;
+using SharpConsole.Core;
 
 namespace SharpConsole.Platform.Infrastructure;
 

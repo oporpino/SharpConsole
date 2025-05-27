@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using SharpConsole.Domain.Outbound;
+using SharpConsole.Core.Outbound;
 using SharpConsole.Platform.Application;
 
 namespace SharpConsole.Platform.Infrastructure;

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace SharpConsole.Domain.Outbound;
+namespace SharpConsole.Core.Outbound;
 
 public interface IAutoComplete
 {

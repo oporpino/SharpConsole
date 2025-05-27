@@ -1,4 +1,4 @@
-namespace SharpConsole.Domain.UseCases;
+namespace SharpConsole.Core.UseCases;
 
 public interface IUseCase<T>
 {

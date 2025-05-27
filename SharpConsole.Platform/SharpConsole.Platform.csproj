@@ -33,6 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharpConsole.Domain\SharpConsole.Domain.csproj" Pack="true" />
+    <ProjectReference Include="..\SharpConsole.Core\SharpConsole.Core.csproj" Pack="true" />
   </ItemGroup>
 </Project>

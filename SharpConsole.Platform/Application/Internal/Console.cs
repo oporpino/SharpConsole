@@ -1,5 +1,5 @@
-using SharpConsole.Domain.Outbound;
-using SharpConsole.Domain;
+using SharpConsole.Core.Outbound;
+using SharpConsole.Core;
 
 namespace SharpConsole.Platform.Application.Internal;
 

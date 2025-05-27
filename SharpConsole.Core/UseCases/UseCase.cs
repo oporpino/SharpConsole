@@ -1,7 +1,7 @@
 using System;
-using SharpConsole.Domain.Inbound;
+using SharpConsole.Core.Inbound;
 
-namespace SharpConsole.Domain.UseCases;
+namespace SharpConsole.Core.UseCases;
 
 public abstract class UseCase<T>
 {

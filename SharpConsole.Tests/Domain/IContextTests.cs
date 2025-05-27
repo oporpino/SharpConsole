@@ -1,4 +1,4 @@
-using SharpConsole.Domain.Inbound;
+using SharpConsole.Core.Inbound;
 using Xunit;
 
 namespace SharpConsole.Platform.Tests.Domain;

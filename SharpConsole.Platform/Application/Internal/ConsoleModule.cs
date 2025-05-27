@@ -1,9 +1,9 @@
 using Microsoft.Extensions.DependencyInjection;
-using SharpConsole.Domain;
-using SharpConsole.Domain.Entities;
-using SharpConsole.Domain.Inbound;
-using SharpConsole.Domain.Outbound;
-using SharpConsole.Domain.UseCases;
+using SharpConsole.Core;
+using SharpConsole.Core.Entities;
+using SharpConsole.Core.Inbound;
+using SharpConsole.Core.Outbound;
+using SharpConsole.Core.UseCases;
 using SharpConsole.Platform.Infrastructure;
 using SharpConsole.Platform.Application.Internal;
 using Console = SharpConsole.Platform.Application.Internal.Console;

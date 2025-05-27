@@ -1,4 +1,4 @@
-namespace SharpConsole.Domain.Outbound;
+namespace SharpConsole.Core.Outbound;
 
 public interface ILineCleaner
 {

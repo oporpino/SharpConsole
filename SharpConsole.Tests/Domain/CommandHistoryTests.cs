@@ -1,4 +1,4 @@
-using SharpConsole.Domain.Outbound;
+using SharpConsole.Core.Outbound;
 using SharpConsole.Platform.Infrastructure;
 using Xunit;
 

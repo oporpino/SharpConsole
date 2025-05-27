@@ -1,7 +1,7 @@
 using System;
-using SharpConsole.Domain.Inbound;
+using SharpConsole.Core.Inbound;
 
-namespace SharpConsole.Domain.Entities;
+namespace SharpConsole.Core.Entities;
 
 public readonly struct ConsoleInput
 {

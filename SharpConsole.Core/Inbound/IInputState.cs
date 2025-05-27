@@ -1,4 +1,4 @@
-namespace SharpConsole.Domain.Inbound;
+namespace SharpConsole.Core.Inbound;
 
 public interface IInputState
 {

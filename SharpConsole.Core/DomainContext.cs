@@ -1,7 +1,7 @@
-using SharpConsole.Domain.Outbound;
-using SharpConsole.Domain.UseCases;
+using SharpConsole.Core.Outbound;
+using SharpConsole.Core.UseCases;
 
-namespace SharpConsole.Domain;
+namespace SharpConsole.Core;
 
 public class DomainContext
 {

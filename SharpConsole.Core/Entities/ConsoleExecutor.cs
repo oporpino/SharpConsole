@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
-using SharpConsole.Domain.Inbound;
-using SharpConsole.Domain.Outbound;
+using SharpConsole.Core.Inbound;
+using SharpConsole.Core.Outbound;
 
-namespace SharpConsole.Domain.Entities;
+namespace SharpConsole.Core.Entities;
 
 public class ConsoleExecutor : IConsoleExecutor
 {
