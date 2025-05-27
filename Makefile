@@ -15,9 +15,17 @@ run.simple:
 	docker compose build sharpconsole.simple
 	docker compose run --rm sharpconsole.simple
 
-run.entity.inmemory:
-	docker compose build sharpconsole.entity.inmemory
-	docker compose run --rm sharpconsole.entity.inmemory
+run.entity-inmemory:
+	docker compose build sharpconsole.entity-inmemory
+	docker compose run --rm sharpconsole.entity-inmemory
+
+run.examples.simple:
+	docker compose -f .examples/docker-compose.yml build sharpconsole.examples.simple
+	docker compose -f .examples/docker-compose.yml run --rm sharpconsole.examples.simple
+
+run.examples.entity-inmemory:
+	docker compose -f .examples/docker-compose.yml build sharpconsole.examples.entity-inmemory
+	docker compose -f .examples/docker-compose.yml run --rm sharpconsole.examples.entity-inmemory
 
 # Publish NuGet package
 nuget.publish:
