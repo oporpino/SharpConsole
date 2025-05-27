@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace SharpConsole.Domain.Outbound;
 
 public interface IScriptEngine

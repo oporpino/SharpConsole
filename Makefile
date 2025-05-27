@@ -21,7 +21,7 @@ run.entity.inmemory:
 
 # Publish NuGet package
 nuget.publish:
-	@.commons/scripts/make/nuget/publish SharpConsole.Core
+	@.commons/scripts/make/nuget/publish SharpConsole.Core SharpConsole.Domain
 
 # List NuGet package versions
 nuget.versions:

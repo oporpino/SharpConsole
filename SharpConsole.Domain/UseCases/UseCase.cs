@@ -1,4 +1,4 @@
-
+using System;
 using SharpConsole.Domain.Inbound;
 
 namespace SharpConsole.Domain.UseCases;

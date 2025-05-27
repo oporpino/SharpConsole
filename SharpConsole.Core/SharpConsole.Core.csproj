@@ -9,15 +9,17 @@
 
     <!-- NuGet Package Metadata -->
     <PackageId>SharpConsole</PackageId>
-    <Version>0.0.5</Version>
+    <Version>0.0.6</Version>
     <Authors>oporpino</Authors>
     <Description>A powerful console application framework for .NET that provides auto-completion, command execution, and more.</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>console;shell;repl;autocomplete</PackageTags>
-    <PackageProjectUrl>https://github.com/gporpino/SharpConsole</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/gporpino/SharpConsole.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/oporpino/SharpConsole</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/oporpino/SharpConsole.git</RepositoryUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IsPackable>true</IsPackable>
+    <IncludeBuildOutput>true</IncludeBuildOutput>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,7 +33,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharpConsole.Domain\SharpConsole.Domain.csproj" />
+    <ProjectReference Include="..\SharpConsole.Domain\SharpConsole.Domain.csproj" Pack="true" />
   </ItemGroup>
-
 </Project>

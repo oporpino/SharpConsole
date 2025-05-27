@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace SharpConsole.Domain.Outbound;
 
 public interface IAutoComplete

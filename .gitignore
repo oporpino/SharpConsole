@@ -60,3 +60,5 @@ solution/obj/
 
 # Add solution/app/wwwroot/ to the ignore list
 solution/app/wwwroot/
+
+.DS_Store
