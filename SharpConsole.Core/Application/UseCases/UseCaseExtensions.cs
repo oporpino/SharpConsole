@@ -1,4 +1,4 @@
-namespace SharpConsole.Core.UseCases;
+namespace SharpConsole.Core.Application.UseCases;
 
 public static class UseCaseExtensions
 {

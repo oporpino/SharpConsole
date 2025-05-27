@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <PackageId>SharpConsole.Core</PackageId>
-    <Version>0.0.6</Version>
+    <Version>0.0.7</Version>
     <Authors>oporpino</Authors>
     <Description>SharpConsole Domain Layer</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>

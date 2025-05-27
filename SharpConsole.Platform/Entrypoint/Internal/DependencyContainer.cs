@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace SharpConsole.Platform.Application.Internal;
+namespace SharpConsole.Platform.Entrypoint.Internal;
 
 internal sealed class DependencyContainer
 {

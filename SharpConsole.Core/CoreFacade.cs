@@ -1,14 +1,14 @@
 using SharpConsole.Core.Outbound;
-using SharpConsole.Core.UseCases;
+using SharpConsole.Core.Application.UseCases;
 
 namespace SharpConsole.Core;
 
-public class DomainContext
+public class CoreFacade
 {
   private readonly IConsoleExecutor _executor;
   private readonly IConsoleDisplay _display;
 
-  public DomainContext(IConsoleExecutor executor, IConsoleDisplay display)
+  public CoreFacade(IConsoleExecutor executor, IConsoleDisplay display)
   {
     _executor = executor;
     _display = display;

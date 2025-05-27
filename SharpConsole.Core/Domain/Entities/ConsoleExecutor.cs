@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using SharpConsole.Core.Inbound;
 using SharpConsole.Core.Outbound;
 
-namespace SharpConsole.Core.Entities;
+namespace SharpConsole.Core.Domain.Entities;
 
 public class ConsoleExecutor : IConsoleExecutor
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using SharpConsole.Core.Outbound;
-using SharpConsole.Platform.Application;
+using SharpConsole.Platform.Entrypoint;
 
 namespace SharpConsole.Platform.Infrastructure;
 

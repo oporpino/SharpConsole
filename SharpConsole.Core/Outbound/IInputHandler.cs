@@ -1,4 +1,4 @@
-using SharpConsole.Core.Entities;
+using SharpConsole.Core.Domain.Entities;
 
 namespace SharpConsole.Core.Outbound;
 

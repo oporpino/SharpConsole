@@ -1,6 +1,6 @@
 using SharpConsole.Core.Inbound;
 using SharpConsole.Core.Outbound;
-using SharpConsole.Core.UseCases;
+using SharpConsole.Core.Application.UseCases;
 using Xunit;
 using Moq;
 

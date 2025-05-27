@@ -3,12 +3,13 @@ using Microsoft.CodeAnalysis.Scripting;
 using SharpConsole.Core.Outbound;
 using SharpConsole.Core.Inbound;
 using System.Linq;
-using SharpConsole.Platform.Application;
+using SharpConsole.Core.Application;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
 using System.Reflection;
 using Microsoft.CodeAnalysis;
+using SharpConsole.Platform.Entrypoint;
 
 namespace SharpConsole.Platform.Infrastructure;
 

@@ -1,6 +1,6 @@
 
 
-namespace SharpConsole.Platform.Application;
+namespace SharpConsole.Platform.Entrypoint;
 
 public abstract class ConsoleContext : IConsoleContext
 {

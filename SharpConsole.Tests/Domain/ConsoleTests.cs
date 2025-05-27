@@ -1,8 +1,8 @@
 using SharpConsole.Core.Inbound;
 using SharpConsole.Core.Outbound;
-using SharpConsole.Core.UseCases;
+using SharpConsole.Core.Application.UseCases;
 using SharpConsole.Platform.Infrastructure;
-using ConsoleEntity = SharpConsole.Core.Entities.Console;
+using ConsoleEntity = SharpConsole.Core.Domain.Entities.Console;
 using Xunit;
 using Moq;
 

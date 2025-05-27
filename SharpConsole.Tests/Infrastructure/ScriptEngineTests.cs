@@ -2,7 +2,7 @@ using SharpConsole.Core.Inbound;
 using SharpConsole.Platform.Infrastructure;
 using Xunit;
 using Moq;
-using SharpConsole.Platform.Application;
+using SharpConsole.Platform.Entrypoint;
 using System.Dynamic;
 
 namespace SharpConsole.Platform.Tests.Infrastructure;

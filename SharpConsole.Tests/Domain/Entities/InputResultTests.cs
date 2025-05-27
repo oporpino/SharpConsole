@@ -1,4 +1,4 @@
-using SharpConsole.Core.Entities;
+using SharpConsole.Core.Domain.Entities;
 using Xunit;
 
 namespace SharpConsole.Platform.Tests.Domain.Entities;

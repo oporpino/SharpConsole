@@ -1,14 +1,14 @@
 using Microsoft.Extensions.DependencyInjection;
 using SharpConsole.Core;
-using SharpConsole.Core.Entities;
+using SharpConsole.Core.Domain.Entities;
 using SharpConsole.Core.Inbound;
 using SharpConsole.Core.Outbound;
-using SharpConsole.Core.UseCases;
+using SharpConsole.Core.Application.UseCases;
 using SharpConsole.Platform.Infrastructure;
-using SharpConsole.Platform.Application.Internal;
-using Console = SharpConsole.Platform.Application.Internal.Console;
+using SharpConsole.Platform.Entrypoint.Internal;
+using Console = SharpConsole.Platform.Entrypoint.Internal.Console;
 
-namespace SharpConsole.Platform.Application;
+namespace SharpConsole.Platform.Entrypoint;
 
 internal static class ConsoleModule
 {
@@ -16,7 +16,7 @@ internal static class ConsoleModule
   {
     // Register domain entities
     services.AddSingleton<IConsoleExecutor, ConsoleExecutor>();
-    services.AddSingleton<DomainContext>();
+    services.AddSingleton<CoreFacade>();
 
     // Register infrastructure implementations for domain interfaces
     services.AddSingleton<IScriptEngine, ScriptEngine>();

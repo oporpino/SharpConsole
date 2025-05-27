@@ -1,6 +1,6 @@
 using System;
 using System.Linq;
-using SharpConsole.Core.Entities;
+using SharpConsole.Core.Domain.Entities;
 using SharpConsole.Core.Outbound;
 using SharpConsole.Core;
 

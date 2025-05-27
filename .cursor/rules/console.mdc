@@ -7,4 +7,42 @@ Estou fazendo um projeto de console para que seja colocado como dependencia de o
 
 - Precisa ter o minimo de intrusao do aplicativo que irá usar.
 - Precisa ser injetado todas as necessidades sem a necessidade de alterar o projeto.
-- O Icontext é passado pelo Shell.Start(context) e não deve ser instanciado dentro do lib.csproj
+- O IConsoleContext é passado pelo Console.Start(context) e não deve ser instanciado dentro dos projetos de example
+
+Siga sempre a estrutura abaixo, Ela é obrigatória!
+
+Estrutura do projeto:
+- core
+- - inbound
+- - - Interfaces de entrada (implementadas no core e usadas no entrypoint)
+- - outbound
+- - - Interfaces de saída (implementadas no infraestructure e usadas no core)
+- - domain
+- - - Entidades
+- - - Value Objects
+- - application
+- - - Use Cases
+- - - DTOs
+- - - Exceptions
+- - - Mappers
+- platform
+- - entrypoint
+- - - main / Program
+- - - ports
+- - - - Execução de use cases
+- - - - Comunicação com o mundo externo
+- - - helpers
+- - - - Argument parser, etc
+- - framework
+- - - Injeção de dependência
+- - infrastructure
+- - - adapters
+- - - - Repositórios (DB, arquivos)
+- - - - Gateways externos (API, e-mail)
+- - - - Configuração de container/DI
+- - - - Logging
+- - - - Acesso a rede, arquivos etc.
+
+Resumo funcional da estrutura:
+- core: lógica de negócio e orquestração (sem dependências externas)
+- platform: suporte técnico e operacional (como a app roda e interage com o mundo)

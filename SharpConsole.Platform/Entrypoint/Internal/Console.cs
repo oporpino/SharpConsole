@@ -1,7 +1,7 @@
 using SharpConsole.Core.Outbound;
 using SharpConsole.Core;
 
-namespace SharpConsole.Platform.Application.Internal;
+namespace SharpConsole.Platform.Entrypoint.Internal;
 
 internal class Console
 {
@@ -17,7 +17,7 @@ internal class Console
 
     AplicationContext.Set(context);
 
-    var domainContext = DependencyContainer.Instance.GetService<DomainContext>();
+    var domainContext = DependencyContainer.Instance.GetService<CoreFacade>();
     domainContext.RunConsole();
   }
 }
