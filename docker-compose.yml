@@ -5,9 +5,9 @@ services:
       file: docker/simple/docker-compose.simple.yml
       service: run
 
-  sharpconsole.entity-inmemory:
+  sharpconsole.entity-in-memory:
     extends:
-      file: docker/entity-inmemory/docker-compose.entity-inmemory.yml
+      file: docker/entity-in-memory/docker-compose.entity-in-memory.yml
       service: run
 
 

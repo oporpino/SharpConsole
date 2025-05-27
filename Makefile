@@ -23,9 +23,13 @@ run.examples.simple:
 	docker compose -f .examples/docker-compose.yml build sharpconsole.examples.simple
 	docker compose -f .examples/docker-compose.yml run --rm sharpconsole.examples.simple
 
-run.examples.entity-inmemory:
-	docker compose -f .examples/docker-compose.yml build sharpconsole.examples.entity-inmemory
-	docker compose -f .examples/docker-compose.yml run --rm sharpconsole.examples.entity-inmemory
+run.examples.entity-in-memory:
+	docker compose -f .examples/docker-compose.yml build sharpconsole.examples.entity-in-memory
+	docker compose -f .examples/docker-compose.yml run --rm sharpconsole.examples.entity-in-memory
+
+run.examples.entity-with-database:
+	docker compose -f .examples/docker-compose.yml build sharpconsole.examples.entity-with-database
+	docker compose -f .examples/docker-compose.yml run --rm sharpconsole.examples.entity-with-database
 
 # Publish NuGet package
 nuget.publish:
