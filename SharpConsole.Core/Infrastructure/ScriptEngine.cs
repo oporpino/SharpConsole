@@ -41,7 +41,7 @@ public class ScriptEngine : IScriptEngine
 
   public async Task<object?> Execute(string command)
   {
-    var context = ConsoleContext.Get();
+    var context = AplicationContext.Get();
     try
     {
       var script = _scriptState == null

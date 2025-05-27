@@ -3,10 +3,10 @@ using Console = SharpConsole.Core.Application.Internal.Console;
 
 namespace SharpConsole.Core.Application;
 
-public static class ConsoleExtensions
+public static class ConsoleContextExtensions
 {
-  public static void Start(this ISharpConsole console)
+  public static void StartConsole(this IConsoleContext context)
   {
-    Console.Start(console.GetContext());
+    Console.Start(context.GetContext());
   }
 }

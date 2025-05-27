@@ -15,7 +15,7 @@ public class ScriptEngineTests
     // Arrange
     dynamic context = new ExpandoObject();
     context.Value = 42;
-    ConsoleContext.Set(context);
+    AplicationContext.Set(context);
     var scriptEngine = new ScriptEngine();
 
     // Act
@@ -31,7 +31,7 @@ public class ScriptEngineTests
     // Arrange
     dynamic context = new ExpandoObject();
     context.Value = 42;
-    ConsoleContext.Set(context);
+    AplicationContext.Set(context);
     var scriptEngine = new ScriptEngine();
 
     // Act & Assert
@@ -44,7 +44,7 @@ public class ScriptEngineTests
     // Arrange
     dynamic context = new ExpandoObject();
     context.Numbers = new[] { 1, 2, 3 };
-    ConsoleContext.Set(context);
+    AplicationContext.Set(context);
     var scriptEngine = new ScriptEngine();
 
     // Act
@@ -62,7 +62,7 @@ public class ScriptEngineTests
     context.Name = "Test";
     context.Age = 25;
     context.Tags = new[] { "tag1", "tag2" };
-    ConsoleContext.Set(context);
+    AplicationContext.Set(context);
     var scriptEngine = new ScriptEngine();
 
     // Act
@@ -80,7 +80,7 @@ public class ScriptEngineTests
     context.Name = "Test";
     context.Age = 25;
     context.Tags = new[] { "tag1", "tag2" };
-    ConsoleContext.Set(context);
+    AplicationContext.Set(context);
     var scriptEngine = new ScriptEngine();
 
     // Act

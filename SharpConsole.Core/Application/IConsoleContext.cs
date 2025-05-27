@@ -1,6 +1,6 @@
 namespace SharpConsole.Core.Application;
 
-public interface ISharpConsole
+public interface IConsoleContext
 {
   object GetContext();
 }

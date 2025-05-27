@@ -27,7 +27,7 @@ public class AutoComplete : IAutoComplete
     if (string.IsNullOrEmpty(input))
       return _suggestions;
 
-    var context = ConsoleContext.Get();
+    var context = AplicationContext.Get();
     var parts = input.Split(DOT);
 
     if (parts.Length == 1)

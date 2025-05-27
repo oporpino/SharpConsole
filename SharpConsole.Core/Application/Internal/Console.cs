@@ -15,7 +15,7 @@ internal class Console
       _isInitialized = true;
     }
 
-    ConsoleContext.Set(context);
+    AplicationContext.Set(context);
 
     var domainContext = DependencyContainer.Instance.GetService<DomainContext>();
     domainContext.RunConsole();
