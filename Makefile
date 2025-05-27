@@ -18,3 +18,11 @@ run.simple:
 run.entity.inmemory:
 	docker compose build sharpconsole.entity.inmemory
 	docker compose run --rm sharpconsole.entity.inmemory
+
+# Publish NuGet package
+nuget.publish:
+	@.commons/scripts/make/nuget/publish SharpConsole.Core
+
+# List NuGet package versions
+nuget.versions:
+	@.commons/scripts/make/nuget/list SharpConsole.Core
