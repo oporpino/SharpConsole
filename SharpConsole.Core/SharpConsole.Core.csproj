@@ -12,7 +12,7 @@
     <Version>0.0.5</Version>
     <Authors>oporpino</Authors>
     <Description>A powerful console application framework for .NET that provides auto-completion, command execution, and more.</Description>
-    <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageTags>console;shell;repl;autocomplete</PackageTags>
     <PackageProjectUrl>https://github.com/gporpino/SharpConsole</PackageProjectUrl>
@@ -27,6 +27,7 @@
 
   <ItemGroup>
     <None Include="../README.md" Pack="true" PackagePath="/" />
+    <None Include="../LICENSE" Pack="true" PackagePath="/" />
   </ItemGroup>
 
   <ItemGroup>

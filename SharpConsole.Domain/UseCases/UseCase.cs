@@ -1,4 +1,4 @@
-using Microsoft.Extensions.DependencyInjection;
+
 using SharpConsole.Domain.Inbound;
 
 namespace SharpConsole.Domain.UseCases;
