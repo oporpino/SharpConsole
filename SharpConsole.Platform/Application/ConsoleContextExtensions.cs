@@ -1,7 +1,7 @@
-using SharpConsole.Core.Application.Internal;
-using Console = SharpConsole.Core.Application.Internal.Console;
+using SharpConsole.Platform.Application.Internal;
+using Console = SharpConsole.Platform.Application.Internal.Console;
 
-namespace SharpConsole.Core.Application;
+namespace SharpConsole.Platform.Application;
 
 public static class ConsoleContextExtensions
 {

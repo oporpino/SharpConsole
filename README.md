@@ -21,7 +21,7 @@ dotnet add package SharpConsole
 
 ## Usage
 
-Here's how to use SharpConsole.Core in your project:
+Here's how to use SharpConsole.Platform in your project:
 
 1. Create a class that inherits from SharpConsoleBase:
 
@@ -39,7 +39,7 @@ public class CustomConsole : SharpConsoleBase
 
 ```csharp
 using Microsoft.EntityFrameworkCore;
-using SharpConsole.Core.Application;
+using SharpConsole.Platform.Application;
 using SharpConsole.Domain.Entities;
 
 var options = new DbContextOptionsBuilder<AppDbContext>()

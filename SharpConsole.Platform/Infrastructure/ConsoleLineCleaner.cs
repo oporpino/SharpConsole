@@ -1,6 +1,6 @@
 using SharpConsole.Domain.Outbound;
 
-namespace SharpConsole.Core.Infrastructure;
+namespace SharpConsole.Platform.Infrastructure;
 
 public class ConsoleLineCleaner : ILineCleaner
 {

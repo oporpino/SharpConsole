@@ -1,7 +1,7 @@
 using SharpConsole.Domain.Entities;
 using Xunit;
 
-namespace SharpConsole.Core.Tests.Domain.Entities;
+namespace SharpConsole.Platform.Tests.Domain.Entities;
 
 public class ConsoleInputTests
 {

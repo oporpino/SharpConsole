@@ -1,7 +1,7 @@
 using SharpConsole.Domain.Entities;
 using SharpConsole.Domain.Outbound;
 
-namespace SharpConsole.Core.Infrastructure;
+namespace SharpConsole.Platform.Infrastructure;
 
 public class ConsoleDisplay : IConsoleDisplay, IDisposable
 {

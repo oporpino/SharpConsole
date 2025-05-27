@@ -33,8 +33,8 @@ run.examples.entity-with-database:
 
 # Publish NuGet package
 nuget.publish:
-	@.commons/scripts/make/nuget/publish SharpConsole.Core SharpConsole.Domain
+	@.commons/scripts/make/nuget/publish SharpConsole.Platform SharpConsole.Domain
 
 # List NuGet package versions
 nuget.versions:
-	@.commons/scripts/make/nuget/list SharpConsole.Core
+	@.commons/scripts/make/nuget/list SharpConsole.Platform

@@ -4,7 +4,7 @@ using SharpConsole.Domain.Entities;
 using SharpConsole.Domain.Outbound;
 using SharpConsole.Domain;
 
-namespace SharpConsole.Core.Infrastructure;
+namespace SharpConsole.Platform.Infrastructure;
 
 public class ConsoleInputHandler : IInputHandler
 {

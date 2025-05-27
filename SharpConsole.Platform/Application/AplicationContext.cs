@@ -1,6 +1,6 @@
 using SharpConsole.Domain.Inbound;
 
-namespace SharpConsole.Core.Application;
+namespace SharpConsole.Platform.Application;
 
 public static class AplicationContext
 {

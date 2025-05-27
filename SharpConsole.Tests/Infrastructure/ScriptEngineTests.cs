@@ -1,11 +1,11 @@
 using SharpConsole.Domain.Inbound;
-using SharpConsole.Core.Infrastructure;
+using SharpConsole.Platform.Infrastructure;
 using Xunit;
 using Moq;
-using SharpConsole.Core.Application;
+using SharpConsole.Platform.Application;
 using System.Dynamic;
 
-namespace SharpConsole.Core.Tests.Infrastructure;
+namespace SharpConsole.Platform.Tests.Infrastructure;
 
 public class ScriptEngineTests
 {

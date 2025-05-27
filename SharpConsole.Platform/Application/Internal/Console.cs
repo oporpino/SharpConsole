@@ -1,7 +1,7 @@
 using SharpConsole.Domain.Outbound;
 using SharpConsole.Domain;
 
-namespace SharpConsole.Core.Application.Internal;
+namespace SharpConsole.Platform.Application.Internal;
 
 internal class Console
 {

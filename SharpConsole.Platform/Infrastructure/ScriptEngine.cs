@@ -3,14 +3,14 @@ using Microsoft.CodeAnalysis.Scripting;
 using SharpConsole.Domain.Outbound;
 using SharpConsole.Domain.Inbound;
 using System.Linq;
-using SharpConsole.Core.Application;
+using SharpConsole.Platform.Application;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Runtime.CompilerServices;
 using System.Reflection;
 using Microsoft.CodeAnalysis;
 
-namespace SharpConsole.Core.Infrastructure;
+namespace SharpConsole.Platform.Infrastructure;
 
 public class ScriptEngine : IScriptEngine
 {

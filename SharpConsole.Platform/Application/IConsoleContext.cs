@@ -1,4 +1,4 @@
-namespace SharpConsole.Core.Application;
+namespace SharpConsole.Platform.Application;
 
 public interface IConsoleContext
 {

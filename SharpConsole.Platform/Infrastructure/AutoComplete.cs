@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using SharpConsole.Domain.Outbound;
-using SharpConsole.Core.Application;
+using SharpConsole.Platform.Application;
 
-namespace SharpConsole.Core.Infrastructure;
+namespace SharpConsole.Platform.Infrastructure;
 
 public class AutoComplete : IAutoComplete
 {

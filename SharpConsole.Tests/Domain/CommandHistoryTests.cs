@@ -1,8 +1,8 @@
 using SharpConsole.Domain.Outbound;
-using SharpConsole.Core.Infrastructure;
+using SharpConsole.Platform.Infrastructure;
 using Xunit;
 
-namespace SharpConsole.Core.Tests.Domain;
+namespace SharpConsole.Platform.Tests.Domain;
 
 public class CommandHistoryTests
 {

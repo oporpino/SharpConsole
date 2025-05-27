@@ -5,7 +5,7 @@ using ConsoleEntity = SharpConsole.Domain.Entities.Console;
 using Xunit;
 using Moq;
 
-namespace SharpConsole.Core.Tests.Domain;
+namespace SharpConsole.Platform.Tests.Domain;
 
 public class ConsoleMockTests
 {

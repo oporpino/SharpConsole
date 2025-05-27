@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SharpConsole.Domain.Outbound;
 
-namespace SharpConsole.Core.Infrastructure;
+namespace SharpConsole.Platform.Infrastructure;
 
 public class CommandHistory : ICommandHistory
 {

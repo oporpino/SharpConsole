@@ -3,7 +3,7 @@ using SharpConsole.Domain.Outbound;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SharpConsole.Core.Infrastructure;
+namespace SharpConsole.Platform.Infrastructure;
 
 public class JsonOutputFormatter : IOutputFormatter
 {

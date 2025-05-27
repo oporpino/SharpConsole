@@ -2,11 +2,11 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
 # Copy the solution and project files
-COPY SharpConsole.Core/ ./SharpConsole.Core/
+COPY SharpConsole.Platform/ ./SharpConsole.Platform/
 COPY .examples/SharpConsoleExamples.Simple/ ./SharpConsoleExamples.Simple/
 
 # Replace NuGet package with project reference
-RUN sed -i 's/<PackageReference Include="SharpConsole" Version="[0-9.]*" \/>/<ProjectReference Include="..\/SharpConsole.Core\/SharpConsole.Core.csproj" \/>/' SharpConsoleExamples.Simple/SharpConsoleExamples.Simple.csproj
+RUN sed -i 's/<PackageReference Include="SharpConsole" Version="[0-9.]*" \/>/<ProjectReference Include="..\/SharpConsole.Platform\/SharpConsole.Platform.csproj" \/>/' SharpConsoleExamples.Simple/SharpConsoleExamples.Simple.csproj
 
 # Copy the rest of the code
 COPY . .
