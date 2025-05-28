@@ -6,8 +6,12 @@ alwaysApply: true
 Estou fazendo um projeto de console para que seja colocado como dependencia de outro. Ele irá rodar um console semelhante ao rails console.
 
 - Precisa ter o minimo de intrusao do aplicativo que irá usar.
+- Método não devem ter mais de 5 linhas! E isso é rígido.
 - Precisa ser injetado todas as necessidades sem a necessidade de alterar o projeto.
-- O IConsoleContext é passado pelo Console.Start(context) e não deve ser instanciado dentro dos projetos de example
+- O IConsoleContext é passado pelo Console.Start(context) e não deve ser instanciado dentro dos projetos de example.
+- As implementações do namespace core nao precisam de interfaces, a menos que dependam de entrada ou saida.
+- Core não pode, nunca, ter referencia a lib de sistema e implementação de framework.
+- Nunca use namespace Microsoft.* ou System.* no core.
 
 Siga sempre a estrutura abaixo, Ela é obrigatória!
 
@@ -16,9 +20,11 @@ Estrutura do projeto:
 - - inbound
 - - - Interfaces de entrada (implementadas no core e usadas no entrypoint)
 - - outbound
-- - - Interfaces de saída (implementadas no infraestructure e usadas no core)
+- - - Interfaces de saída (implemetadas na infraestrutura e usadas no core)
 - - domain
 - - - Entidades
+- - - - deixe as entidades inteligentes, com validações e métodos robustos
+- - - - Não deixe as entidades burras (só com get e set)
 - - - Value Objects
 - - application
 - - - Use Cases
